@@ -81,6 +81,23 @@ export function Hero3D() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll cue — fills the lower space and signals more content */}
+      <motion.div
+        initial={reduce ? { opacity: 1 } : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        className="pointer-events-none absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[var(--on-ink-faint)]"
+      >
+        <span className="text-[0.68rem] uppercase tracking-[0.22em]">Scroll</span>
+        <span className="block h-9 w-px overflow-hidden bg-white/15">
+          <motion.span
+            className="block h-1/2 w-px bg-evergreen-300"
+            animate={reduce ? {} : { y: ["-100%", "200%"] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </span>
+      </motion.div>
     </section>
   );
 }

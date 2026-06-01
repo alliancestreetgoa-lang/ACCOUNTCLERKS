@@ -37,12 +37,12 @@ export function Navbar() {
       )}
     >
       <div className="wrap flex h-[76px] items-center justify-between">
-        <Link href="/" className="inline-flex items-center" aria-label="ACCOUNTCLERKS home">
+        <Link href="/" className="group inline-flex items-center [perspective:700px]" aria-label="ACCOUNTCLERKS home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
             alt="ACCOUNTCLERKS — Beyond the Numbers"
-            className="h-[34px] w-auto rounded-lg bg-white px-2.5 py-1.5 shadow-[0_2px_10px_rgba(0,0,0,.12)]"
+            className="h-[44px] w-auto rounded-xl bg-white px-3 py-2 shadow-[0_8px_22px_-6px_rgba(0,0,0,.45),0_2px_6px_rgba(0,0,0,.2)] ring-1 ring-black/5 transition-[transform,box-shadow] duration-300 ease-out-strong will-change-transform group-hover:-translate-y-0.5 group-hover:scale-[1.04] group-hover:shadow-[0_16px_34px_-8px_rgba(0,0,0,.55)] group-hover:[transform:translateY(-2px)_rotateX(7deg)_rotateY(-6deg)_scale(1.04)] motion-reduce:transition-none motion-reduce:group-hover:transform-none"
           />
         </Link>
 
