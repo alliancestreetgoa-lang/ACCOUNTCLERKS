@@ -54,7 +54,7 @@ export function Hero3D() {
 
           <h1 className="mt-5 font-serif text-[clamp(3rem,8vw,6.2rem)] font-normal leading-[1.04] tracking-[-0.02em] lg:whitespace-nowrap">
             {HEADLINE.map((word, i) => (
-              <span key={i} className="mr-[0.22em] inline-block pb-[0.12em] align-bottom">
+              <span key={i} className="mr-[0.22em] inline-block align-baseline">
                 <motion.span
                   variants={wordReveal}
                   className={`inline-block ${i === 0 ? "italic bg-gradient-to-br from-[#B07FD0] via-[#D81B7E] to-[#29ABE2] bg-clip-text pb-[0.24em] pr-[0.12em] text-transparent" : ""}`}

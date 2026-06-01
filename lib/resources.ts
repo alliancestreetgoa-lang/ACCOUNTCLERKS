@@ -47,8 +47,6 @@ export const RESOURCE_TYPES: { key: ResourceType | "all"; label: string }[] = [
   { key: "article", label: "Articles" },
   { key: "guide", label: "Guides" },
   { key: "checklist", label: "Checklists" },
-  { key: "video", label: "Videos" },
-  { key: "download", label: "Downloads" },
 ];
 
 export const RESOURCE_TOPICS = ["Cash Flow", "Bookkeeping", "Fundraising", "Tax", "SaaS", "E-commerce", "Scaling"] as const;
@@ -58,14 +56,10 @@ const LOCAL: Resource[] = [
   { id: "2", type: "article", title: "Runway, explained simply", excerpt: "What runway really measures, why it moves, and the two levers that change it fastest.", topic: "Cash Flow", date: "2026-05-12", readTime: "6 min", href: "/resources/insights/runway-explained" },
   { id: "3", type: "article", title: "SaaS COGS done right", excerpt: "What belongs in cost of revenue for a software company — and what quietly inflates your margin.", topic: "SaaS", date: "2026-05-04", readTime: "8 min", href: "/resources/insights/saas-cogs" },
   { id: "4", type: "checklist", title: "The month-end close checklist", excerpt: "Twenty-three steps to a clean, audit-ready close by the 5th — print it and tick it off.", topic: "Bookkeeping", date: "2026-04-28", href: "/resources/checklists/month-end-close" },
-  { id: "5", type: "video", title: "Reading your P&L in 5 minutes", excerpt: "A short walkthrough of the four numbers that actually tell you how the month went.", topic: "Bookkeeping", date: "2026-04-19", readTime: "5 min", href: "/resources/videos/reading-your-pnl" },
-  { id: "6", type: "download", title: "Board reporting template (XLSX)", excerpt: "The exact board pack we ship clients — KPIs, cash, and commentary, ready to fill.", topic: "Fundraising", date: "2026-04-10", href: "/resources/downloads/board-reporting-template" },
   { id: "7", type: "article", title: "E-commerce margin: untangling the payout", excerpt: "How processor and platform fees hide your true gross margin — and how to recover it.", topic: "E-commerce", date: "2026-03-30", readTime: "7 min", href: "/resources/insights/ecommerce-margin" },
   { id: "8", type: "checklist", title: "Fundraise-readiness checklist", excerpt: "Get your data room and financials diligence-proof before you start the raise.", topic: "Fundraising", date: "2026-03-22", href: "/resources/checklists/fundraise-readiness" },
   { id: "9", type: "guide", title: "Bookkeeping basics for scaling teams", excerpt: "When to move from cash to accrual, add class tracking, and bring on a controller.", topic: "Scaling", date: "2026-03-14", readTime: "11 min", href: "/resources/guides/bookkeeping-for-scaling" },
-  { id: "10", type: "download", title: "Cash-flow forecast model (Sheets)", excerpt: "A 13-week and 12-month forecast model, pre-built with the formulas we use.", topic: "Cash Flow", date: "2026-03-02", href: "/resources/downloads/cash-flow-model" },
   { id: "11", type: "article", title: "Five wins for close week", excerpt: "Small process changes that shave days off your monthly close immediately.", topic: "Bookkeeping", date: "2026-02-21", readTime: "5 min", href: "/resources/insights/close-week-wins" },
-  { id: "12", type: "video", title: "What a fractional CFO actually does", excerpt: "Where senior finance counsel adds value before you can justify a full-time hire.", topic: "Scaling", date: "2026-02-10", readTime: "9 min", href: "/resources/videos/fractional-cfo" },
 ];
 
 /**
