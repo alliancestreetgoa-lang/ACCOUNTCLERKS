@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const prefersReduced = () =>
   typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/** Single element revealed on scroll via GSAP ScrollTrigger. */
+/** Single element, scroll-LINKED reveal (scrubbed) for a buttery feel. */
 export function Reveal({
   children,
   delay = 0,
@@ -32,14 +32,17 @@ export function Reveal({
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
-        { autoAlpha: 0, y: 46 },
+        { autoAlpha: 0, y: 60 },
         {
           autoAlpha: 1,
           y: 0,
-          duration: 1,
-          ease: "power3.out",
-          delay,
-          scrollTrigger: { trigger: el, start: "top 86%", once: true },
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 92%",
+            end: "top 55%",
+            scrub: 1.2, // smoothing lag — animation eases toward the scrollbar
+          },
         }
       );
     }, el);
@@ -54,10 +57,10 @@ export function Reveal({
   );
 }
 
-/** Staggered reveal of direct children on scroll. */
+/** Staggered, scroll-linked reveal of direct children. */
 export function RevealGroup({
   children,
-  gap = 0.12,
+  gap = 0.15,
   delay = 0,
   className,
 }: {
@@ -79,18 +82,13 @@ export function RevealGroup({
     }
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
-      gsap.fromTo(
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: el, start: "top 90%", end: "top 48%", scrub: 1.2 },
+      });
+      tl.fromTo(
         items,
-        { autoAlpha: 0, y: 40 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          stagger: gap,
-          delay,
-          scrollTrigger: { trigger: el, start: "top 84%", once: true },
-        }
+        { autoAlpha: 0, y: 54 },
+        { autoAlpha: 1, y: 0, ease: "power2.out", stagger: gap, delay }
       );
     }, el);
     return () => ctx.revert();
@@ -103,7 +101,7 @@ export function RevealGroup({
   );
 }
 
-/** Child of RevealGroup — hidden until the group's stagger reveals it. */
+/** Child of RevealGroup — hidden until the group's scrubbed timeline reveals it. */
 export function RevealItem({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={className} style={{ visibility: "hidden" }}>
