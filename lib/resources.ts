@@ -15,8 +15,6 @@
  *     { headers: { Authorization: `Bearer ${CDA_TOKEN}` }, next: { revalidate: 600 } });
  */
 
-import { isSanityConfigured } from "@/sanity/env";
-
 export type ResourceType = "article" | "guide" | "checklist" | "video" | "download";
 
 export interface Resource {
@@ -76,32 +74,11 @@ const LOCAL: Resource[] = [
  * and also falls back on any fetch error so the page never breaks.
  */
 export async function getResources(): Promise<Resource[]> {
-  if (!isSanityConfigured) {
-    return localSorted();
-  }
-  try {
-    const { sanityClient } = await import("@/sanity/client");
-    const { resourcesQuery } = await import("@/sanity/queries");
-    const data = await sanityClient.fetch<Resource[]>(resourcesQuery);
-    return data.length ? data.map((r) => ({ ...r, href: normalizeHref(r.href) })) : localSorted();
-  } catch (err) {
-    console.error("[resources] Sanity fetch failed, using local content:", err);
-    return localSorted();
-  }
+  return localSorted();
 }
 
-/** Fetch a single resource by its detail slug, with the same fallback behavior. */
+/** Fetch a single resource by its detail slug. */
 export async function getResourceBySlug(slug: string): Promise<Resource | null> {
-  if (isSanityConfigured) {
-    try {
-      const { sanityClient } = await import("@/sanity/client");
-      const { resourceBySlugQuery } = await import("@/sanity/queries");
-      const data = await sanityClient.fetch<Resource | null>(resourceBySlugQuery, { slug });
-      if (data) return { ...data, href: normalizeHref(data.href) };
-    } catch (err) {
-      console.error("[resources] Sanity by-slug fetch failed, using local content:", err);
-    }
-  }
   return localSorted().find((r) => slugOf(r) === slug) ?? null;
 }
 

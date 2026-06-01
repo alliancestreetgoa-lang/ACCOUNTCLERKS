@@ -1,9 +1,15 @@
 import { ImageResponse } from "next/og";
-import { getResourceBySlug } from "@/lib/resources";
+import { getResourceBySlug, getResources, slugOf } from "@/lib/resources";
 
+export const dynamic = "force-static";
 export const alt = "ACCOUNTCLERKS resource";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+export async function generateStaticParams() {
+  const resources = await getResources();
+  return resources.map((r) => ({ slug: slugOf(r) }));
+}
 
 export default async function ResourceOgImage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 };
 
 // Revalidate periodically so CMS-backed content stays fresh (ISR).
-export const revalidate = 600;
 
 export default async function ResourcesPage() {
   const resources = await getResources();
@@ -44,16 +43,15 @@ export default async function ResourcesPage() {
           <p className="mx-auto mt-3 max-w-[44ch] text-neutral-500">One genuinely useful finance email a month. No noise.</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <form className="mx-auto mt-7 flex max-w-md flex-wrap gap-3" action="#" method="post">
+          <div className="mx-auto mt-7 flex max-w-md flex-wrap gap-3">
             <input
               type="email"
-              required
               placeholder="Your work email"
               aria-label="Email address"
               className="h-12 min-w-[200px] flex-1 rounded-full border border-neutral-200 bg-canvas px-4 text-[0.95rem] outline-none transition-colors focus:border-evergreen-500"
             />
-            <Button type="submit" variant="primary">Subscribe</Button>
-          </form>
+            <Button href="mailto:hello@accountclerks.com?subject=Subscribe%20to%20the%20monthly%20read" variant="primary">Subscribe</Button>
+          </div>
         </Reveal>
       </Section>
     </>

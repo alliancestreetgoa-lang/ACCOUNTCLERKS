@@ -60,14 +60,40 @@ export function ContactForm() {
   async function submit() {
     setStatus("submitting");
     setErrorMsg("");
+    const score = leadScore(form);
+    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+
+    // No backend on static hosting: post to Formspree if configured, else open a prefilled email.
+    if (!formspreeId) {
+      const lines = [
+        `Name: ${form.name}`,
+        `Email: ${form.email}`,
+        `Company: ${form.company}`,
+        `Revenue: ${form.revenue}`,
+        `Needs: ${form.service}`,
+        `Timeline: ${form.timeline}`,
+        `Current setup: ${form.current}`,
+        `Message: ${form.message}`,
+        `Lead score: ${score}/100`,
+      ].join("\n");
+      window.location.href = `mailto:hello@accountclerks.com?subject=${encodeURIComponent(
+        `New enquiry: ${form.company || form.name}`
+      )}&body=${encodeURIComponent(lines)}`;
+      setStatus("done");
+      return;
+    }
+
     try {
       const fd = new FormData();
       Object.entries(form).forEach(([k, v]) => fd.append(k, v));
-      fd.append("leadScore", String(leadScore(form)));
+      fd.append("leadScore", String(score));
       if (file) fd.append("file", file);
-
-      const res = await fetch("/api/contact", { method: "POST", body: fd });
-      if (!res.ok) throw new Error((await res.json().catch(() => ({})))?.error || "Something went wrong.");
+      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: "POST",
+        body: fd,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error("Something went wrong. Please email us directly.");
       setStatus("done");
     } catch (e: any) {
       setStatus("error");

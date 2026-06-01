@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
+export const dynamic = "force-static";
 import { getResources } from "@/lib/resources";
 import { siteUrl } from "@/lib/site";
 
-export const revalidate = 600;
 
 const STATIC_ROUTES = [
   "",

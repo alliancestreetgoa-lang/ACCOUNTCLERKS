@@ -40,7 +40,7 @@ export function Navbar() {
         <Link href="/" className="inline-flex items-center" aria-label="ACCOUNTCLERKS home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
             alt="ACCOUNTCLERKS — Beyond the Numbers"
             className="h-[34px] w-auto rounded-lg bg-white px-2.5 py-1.5 shadow-[0_2px_10px_rgba(0,0,0,.12)]"
           />

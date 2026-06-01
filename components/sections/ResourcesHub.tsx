@@ -10,6 +10,7 @@ import {
   RESOURCE_TYPES,
   RESOURCE_TOPICS,
 } from "@/lib/resources";
+import { withBase } from "@/lib/site";
 
 const TYPE_ICON: Record<ResourceType, (p: { size?: number; className?: string }) => React.ReactElement> = {
   article: Icon.doc,
@@ -114,7 +115,7 @@ export function ResourcesHub({ resources }: { resources: Resource[] }) {
             return (
               <motion.a
                 key={r.id}
-                href={r.href}
+                href={withBase(r.href)}
                 layout
                 initial={reduce ? { opacity: 1 } : { opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}

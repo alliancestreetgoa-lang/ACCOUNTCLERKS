@@ -1,7 +1,7 @@
 import { getResources } from "@/lib/resources";
 import { siteUrl, escapeXml } from "@/lib/site";
 
-export const revalidate = 600;
+export const dynamic = "force-static";
 
 export async function GET() {
   const resources = await getResources();

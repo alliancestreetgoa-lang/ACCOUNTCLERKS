@@ -39,7 +39,7 @@ export function Footer() {
           <div>
             <Link href="/" className="mb-4 inline-flex items-center" aria-label="ACCOUNTCLERKS home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt="ACCOUNTCLERKS — Beyond the Numbers" className="h-[40px] w-auto rounded-lg bg-white px-3 py-2" />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`} alt="ACCOUNTCLERKS — Beyond the Numbers" className="h-[40px] w-auto rounded-lg bg-white px-3 py-2" />
             </Link>
             <p className="mb-5 max-w-[30ch] text-[0.9rem]">
               Strategic finance and accounting, run on software that closes the month for you.

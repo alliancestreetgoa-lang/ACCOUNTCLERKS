@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+export const dynamic = "force-static";
 
 export const alt = "ACCOUNTCLERKS — Beyond the Numbers";
 export const size = { width: 1200, height: 630 };

@@ -9,11 +9,12 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { articleSchema, breadcrumbSchema } from "@/lib/seo";
 import { getResources, getResourceBySlug, slugOf, type ResourceType } from "@/lib/resources";
 
-export const revalidate = 600;
 
 const TYPE_LABEL: Record<ResourceType, string> = {
   article: "Article", guide: "Guide", checklist: "Checklist", video: "Video", download: "Download",
 };
+
+export const dynamicParams = false; // static export: only prebuilt slugs
 
 export async function generateStaticParams() {
   const resources = await getResources();
@@ -55,7 +56,7 @@ export default async function ResourceDetailPage({ params }: { params: Promise<{
       {/* Header */}
       <header
         className="relative overflow-hidden pb-[clamp(40px,7vh,80px)] pt-[clamp(120px,17vh,190px)] text-[var(--on-ink)]"
-        style={{ background: "radial-gradient(120% 90% at 85% 0%, rgba(47,140,99,.18) 0%, rgba(47,140,99,0) 50%), linear-gradient(168deg, #20231F 0%, #0E1311 65%)" }}
+        style={{ background: "radial-gradient(120% 90% at 85% 0%, rgba(107,46,147,.28) 0%, rgba(107,46,147,0) 50%), radial-gradient(80% 60% at 10% 100%, rgba(41,171,226,.08) 0%, rgba(41,171,226,0) 55%), linear-gradient(168deg, #1D0F30 0%, #160A24 65%)" }}
       >
         <div className="wrap relative z-10 max-w-[var(--maxw-prose)]">
           <Link href="/resources" className="inline-flex items-center gap-1.5 text-[0.88rem] text-[var(--on-ink-mut)] transition-colors hover:text-[var(--on-ink)]">

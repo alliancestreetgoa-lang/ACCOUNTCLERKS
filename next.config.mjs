@@ -3,23 +3,20 @@ import { dirname } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const securityHeaders = [
-  { key: "X-Content-Type-Options", value: "nosniff" },
-  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  { key: "X-Frame-Options", value: "SAMEORIGIN" },
-  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-  { key: "X-DNS-Prefetch-Control", value: "on" },
-];
+// GitHub Pages serves a project repo at /<repo>. Apply basePath in production builds.
+const basePath = process.env.NODE_ENV === "production" ? "/ACCOUNTCLERKS" : "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export", // static HTML export for GitHub Pages
+  trailingSlash: true, // emit /route/index.html so Pages serves nested routes
+  images: { unoptimized: true }, // no server image optimization on Pages
+  basePath,
+  assetPrefix: basePath || undefined,
+  // Expose basePath to the client for plain <a>/<img> that Next doesn't auto-prefix.
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
   reactStrictMode: true,
-  // Pin the workspace root (a parent dir also has a lockfile).
   outputFileTracingRoot: __dirname,
-  poweredByHeader: false,
-  async headers() {
-    return [{ source: "/(.*)", headers: securityHeaders }];
-  },
 };
 
 export default nextConfig;
