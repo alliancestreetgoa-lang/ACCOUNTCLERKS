@@ -1,11 +1,11 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useSpring } from "framer-motion";
+import { locoProgress } from "@/lib/locomotive";
 
-/** Thin top scroll-progress bar — sits above the nav. */
+/** Thin top scroll-progress bar — driven by Locomotive's scroll position. */
 export function ScrollProgress() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 26, mass: 0.4 });
+  const scaleX = useSpring(locoProgress, { stiffness: 140, damping: 26, mass: 0.4 });
   return (
     <motion.div
       aria-hidden

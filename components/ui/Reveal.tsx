@@ -1,13 +1,16 @@
-"use client";
+import clsx from "clsx";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+/**
+ * CSS-class scroll reveals. Elements carry the `.reveal` class; RevealObserver
+ * (an IntersectionObserver) adds `.is-inview` when they enter the viewport, and
+ * the CSS in globals.css (scoped to `.js-reveal`) animates them in. IO reads the
+ * real visual position, so reveals stay reliable under Locomotive's transform —
+ * one reveal system, no AOS, no per-element Framer.
+ *
+ * No "use client" needed — these are pure presentational wrappers.
+ */
 
-const prefersReduced = () =>
-  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-/** Single element, scroll-LINKED reveal (scrubbed) for a buttery feel. */
+/** Single element reveal — fades + lifts in once when scrolled into view. */
 export function Reveal({
   children,
   delay = 0,
@@ -19,49 +22,20 @@ export function Reveal({
   className?: string;
   as?: "div" | "span" | "li";
 }) {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (prefersReduced()) {
-      gsap.set(el, { autoAlpha: 1, y: 0 });
-      return;
-    }
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        el,
-        { autoAlpha: 0, y: 60 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 92%",
-            end: "top 55%",
-            scrub: 1.2, // smoothing lag — animation eases toward the scrollbar
-          },
-        }
-      );
-    }, el);
-    return () => ctx.revert();
-  }, [delay]);
-
   const Tag = as as React.ElementType;
   return (
-    <Tag ref={ref as never} className={className} style={{ visibility: "hidden" }}>
+    <Tag
+      className={clsx("reveal", className)}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
+    >
       {children}
     </Tag>
   );
 }
 
-/** Staggered, scroll-linked reveal of direct children. */
+/** Wrapper whose RevealItem children reveal in a staggered cascade (CSS-driven). */
 export function RevealGroup({
   children,
-  gap = 0.15,
-  delay = 0,
   className,
 }: {
   children: React.ReactNode;
@@ -69,43 +43,10 @@ export function RevealGroup({
   delay?: number;
   className?: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const items = Array.from(el.children) as HTMLElement[];
-    if (!items.length) return;
-    if (prefersReduced()) {
-      gsap.set(items, { autoAlpha: 1, y: 0 });
-      return;
-    }
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: { trigger: el, start: "top 90%", end: "top 48%", scrub: 1.2 },
-      });
-      tl.fromTo(
-        items,
-        { autoAlpha: 0, y: 54 },
-        { autoAlpha: 1, y: 0, ease: "power2.out", stagger: gap, delay }
-      );
-    }, el);
-    return () => ctx.revert();
-  }, [gap, delay]);
-
-  return (
-    <div ref={ref} className={className}>
-      {children}
-    </div>
-  );
+  return <div className={clsx("reveal-group", className)}>{children}</div>;
 }
 
-/** Child of RevealGroup — hidden until the group's scrubbed timeline reveals it. */
+/** Child of RevealGroup (also works standalone) — reveals on scroll. */
 export function RevealItem({ children, className }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div className={className} style={{ visibility: "hidden" }}>
-      {children}
-    </div>
-  );
+  return <div className={clsx("reveal", className)}>{children}</div>;
 }

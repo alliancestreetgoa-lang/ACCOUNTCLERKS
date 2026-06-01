@@ -1,9 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Icon } from "@/components/ui/icons";
 import { AreaChart, BarChart } from "@/components/charts/Charts";
 import { Button } from "@/components/ui/Button";
@@ -89,97 +86,66 @@ function StageVisual({ stageKey, accent }: { stageKey: string; accent: string })
 }
 
 export function GrowthJourney() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const fillRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const mm = gsap.matchMedia();
-
-    // Desktop: pin + horizontal scrub
-    mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
-      const track = trackRef.current!;
-      const distance = track.scrollWidth - window.innerWidth;
-      const tween = gsap.to(track, {
-        x: -distance,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: () => `+=${distance}`,
-          pin: true,
-          scrub: 0.6,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            if (fillRef.current) fillRef.current.style.transform = `scaleX(${self.progress})`;
-            setActive(Math.min(STAGES.length - 1, Math.round(self.progress * (STAGES.length - 1))));
-          },
-        },
-      });
-      return () => tween.scrollTrigger?.kill();
-    });
-
-    return () => mm.revert();
-  }, []);
-
   return (
-    <div ref={sectionRef} className="relative bg-neutral-900 text-[var(--on-ink)]">
-      {/* progress bar */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-1 bg-white/10">
-        <div ref={fillRef} className="h-full origin-left bg-evergreen-300" style={{ transform: "scaleX(0)" }} />
-      </div>
+    <div className="relative bg-neutral-900 text-[var(--on-ink)]">
+      <div className="wrap py-24 lg:py-32">
+        {/* vertical journey: a connecting rail + four stages that reveal on scroll */}
+        <div className="relative grid gap-20 lg:gap-28">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-evergreen-300/0 via-white/10 to-evergreen-300/0 lg:block"
+          />
+          {STAGES.map((s, i) => (
+            <Stage key={s.key} s={s} flip={i % 2 === 1} />
+          ))}
+        </div>
 
-      {/* step indicators */}
-      <div className="pointer-events-none absolute inset-x-0 top-8 z-20 hidden justify-center gap-8 lg:flex">
-        {STAGES.map((s, i) => (
-          <span key={s.key} className={`flex items-center gap-2 text-[0.78rem] font-medium transition-colors duration-300 ${i === active ? "text-evergreen-300" : "text-[var(--on-ink-faint)]"}`}>
-            <span className={`grid h-6 w-6 place-items-center rounded-full border text-[0.7rem] ${i === active ? "border-evergreen-300 bg-evergreen-500/20" : "border-white/15"}`}>{s.n}</span>
-            {s.sub}
-          </span>
-        ))}
-      </div>
-
-      {/* track — horizontal on desktop (pinned scrub), stacked on mobile */}
-      <div ref={trackRef} className="flex flex-col lg:h-screen lg:flex-row lg:flex-nowrap">
-        {STAGES.map((s) => {
-          const IconC = s.icon;
-          return (
-            <article key={s.key} className="flex w-full shrink-0 items-center py-20 lg:h-screen lg:w-screen lg:py-0">
-              <div className="wrap grid w-full items-center gap-[clamp(32px,5vw,72px)] lg:grid-cols-2">
-                <div>
-                  <span className="font-serif text-[clamp(4rem,9vw,7rem)] leading-none" style={{ color: s.accent, opacity: 0.5 }}>{s.n}</span>
-                  <div className="mt-4 inline-flex items-center gap-2.5 rounded-full border border-[var(--hair-dark)] px-3.5 py-1.5 text-[0.78rem] font-medium text-[var(--on-ink-mut)]">
-                    <IconC size={16} /> {s.sub}
-                  </div>
-                  <h3 className="mt-5 font-serif text-[clamp(1.9rem,4vw,3rem)] leading-[1.05] tracking-[-0.018em]">{s.title}</h3>
-                  <p className="mt-4 max-w-[46ch] text-[1.08rem] text-[var(--on-ink-mut)]">{s.desc}</p>
-                  <ul className="mt-6 grid gap-2.5">
-                    {s.points.map((p) => (
-                      <li key={p} className="flex items-center gap-2.5 text-[0.95rem]">
-                        <Icon.check size={16} className="text-evergreen-300" /> {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="flex justify-center">
-                  <StageVisual stageKey={s.key} accent={s.accent} />
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-
-      {/* closing CTA (after the pinned scroll on desktop) */}
-      <div className="wrap py-20 text-center">
-        <h3 className="mx-auto max-w-[18ch] font-serif text-[clamp(1.8rem,3.6vw,2.8rem)] leading-tight">From raw data to real growth — we run the whole journey.</h3>
-        <div className="mt-7 flex justify-center gap-3">
-          <Button href="/contact" variant="primary">Talk To An Expert</Button>
-          <Button href="/financial-management" variant="ghost-dark">See the dashboard</Button>
+        {/* closing CTA */}
+        <div className="mt-24 text-center">
+          <h3 className="mx-auto max-w-[18ch] font-serif text-[clamp(1.8rem,3.6vw,2.8rem)] leading-tight">From raw data to real growth — we run the whole journey.</h3>
+          <div className="mt-7 flex justify-center gap-3">
+            <Button href="/contact" variant="primary">Talk To An Expert</Button>
+            <Button href="/financial-management" variant="ghost-dark">See the dashboard</Button>
+          </div>
         </div>
       </div>
     </div>
+  );
+}
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+/** One journey stage — reveals (fade + lift) once when scrolled into view. */
+function Stage({ s, flip }: { s: (typeof STAGES)[number]; flip: boolean }) {
+  const reduce = useReducedMotion();
+  const IconC = s.icon;
+
+  return (
+    <motion.article
+      initial={reduce ? false : { opacity: 0, y: 56 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.7, ease: EASE }}
+      className="grid items-center gap-[clamp(32px,5vw,72px)] lg:grid-cols-2"
+    >
+      <div className={flip ? "lg:order-2" : ""}>
+        <span className="font-serif text-[clamp(4rem,9vw,7rem)] leading-none" style={{ color: s.accent, opacity: 0.5 }}>{s.n}</span>
+        <div className="mt-4 inline-flex items-center gap-2.5 rounded-full border border-[var(--hair-dark)] px-3.5 py-1.5 text-[0.78rem] font-medium text-[var(--on-ink-mut)]">
+          <IconC size={16} /> {s.sub}
+        </div>
+        <h3 className="mt-5 font-serif text-[clamp(1.9rem,4vw,3rem)] leading-[1.05] tracking-[-0.018em]">{s.title}</h3>
+        <p className="mt-4 max-w-[46ch] text-[1.08rem] text-[var(--on-ink-mut)]">{s.desc}</p>
+        <ul className="mt-6 grid gap-2.5">
+          {s.points.map((p) => (
+            <li key={p} className="flex items-center gap-2.5 text-[0.95rem]">
+              <Icon.check size={16} className="text-evergreen-300" /> {p}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={`flex justify-center ${flip ? "lg:order-1" : ""}`}>
+        <StageVisual stageKey={s.key} accent={s.accent} />
+      </div>
+    </motion.article>
   );
 }

@@ -1,9 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/Button";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { ParticleField } from "@/components/sections/ParticleField";
@@ -13,26 +10,9 @@ const HEADLINE = ["Beyond", "The", "Numbers"];
 
 export function Hero3D() {
   const reduce = useReducedMotion();
-  const rootRef = useRef<HTMLElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (reduce) return;
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      gsap.to(contentRef.current, {
-        yPercent: -8,
-        opacity: 0.35,
-        ease: "none",
-        scrollTrigger: { trigger: rootRef.current, start: "top top", end: "bottom top", scrub: true },
-      });
-    }, rootRef);
-    return () => ctx.revert();
-  }, [reduce]);
 
   return (
     <section
-      ref={rootRef}
       className="relative flex min-h-[100svh] items-center overflow-hidden pt-[76px] text-[var(--on-ink)]"
       style={{
         background:
@@ -42,8 +22,8 @@ export function Hero3D() {
       {/* Mouse-reactive particle field — full-bleed background layer */}
       <ParticleField className="pointer-events-none absolute inset-0 z-0 h-full w-full" />
 
-      {/* Copy */}
-      <div ref={contentRef} className="wrap relative z-10">
+      {/* Copy — Locomotive parallax: drifts up slightly faster than the scroll */}
+      <div {...(reduce ? {} : { "data-scroll": true, "data-scroll-speed": 1.4 })} className="wrap relative z-10">
         <motion.div variants={stagger(0.08)} initial={reduce ? "show" : "hidden"} animate="show" className="mx-auto max-w-6xl text-center">
           <motion.span
             variants={wordReveal}
