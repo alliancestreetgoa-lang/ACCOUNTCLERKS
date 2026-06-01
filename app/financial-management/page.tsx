@@ -60,7 +60,7 @@ export default function FinancialManagementPage() {
       {/* Interactive dashboard */}
       <Section surface="ink">
         <Reveal>
-          <SectionHead onDark eyebrow="Live dashboard" title="Your finances, visible while they happen." lead="Switch views to explore cashflow, forecasting, and profitability — the same picture your dedicated team works from." />
+          <SectionHead center onDark eyebrow="Live dashboard" title="Your finances, visible while they happen." lead="Switch views to explore cashflow, forecasting, and profitability — the same picture your dedicated team works from." />
         </Reveal>
         <Reveal delay={0.1} className="mt-12">
           <FinancialDashboard />
