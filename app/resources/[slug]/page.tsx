@@ -114,7 +114,7 @@ export default async function ResourceDetailPage({ params }: { params: Promise<{
           <RevealGroup className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" gap={0.06}>
             {related.map((x) => (
               <RevealItem key={x.id}>
-                <Link href={x.href} className="group flex h-full flex-col rounded-[22px] border border-[var(--hair-light)] bg-canvas p-6 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
+                <Link href={x.href} className="group flex h-full flex-col rounded-[22px] glass-card p-6 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
                   <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-evergreen-50 px-2.5 py-1 text-[0.72rem] font-medium text-evergreen-700">
                     {TYPE_LABEL[x.type]}
                   </span>

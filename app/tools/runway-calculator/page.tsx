@@ -63,7 +63,7 @@ export default function RunwayCalculatorPage() {
             const IconC = f.icon;
             return (
               <RevealItem key={f.t}>
-                <div className="h-full rounded-[22px] border border-[var(--hair-light)] bg-canvas p-6">
+                <div className="h-full rounded-[22px] glass-card p-6">
                   <div className="grid h-11 w-11 place-items-center rounded-xl bg-evergreen-50 text-evergreen-600">
                     <IconC size={22} />
                   </div>

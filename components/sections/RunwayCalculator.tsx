@@ -70,7 +70,7 @@ export function RunwayCalculator() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
       {/* Inputs */}
-      <div className="rounded-[24px] border border-[var(--hair-light)] bg-canvas p-7 shadow-e1">
+      <div className="rounded-[24px] glass-card p-7 shadow-e1">
         <h3 className="font-serif text-[1.4rem]">Your numbers</h3>
         <p className="mt-1 text-[0.9rem] text-neutral-500">Drag to model your runway. Nothing is stored.</p>
         <div className="mt-7 grid gap-7">

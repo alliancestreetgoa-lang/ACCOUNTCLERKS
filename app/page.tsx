@@ -47,7 +47,7 @@ export default function HomePage() {
             const IconC = s.icon;
             return (
               <RevealItem key={s.title}>
-                <div className="flex h-full flex-col rounded-[24px] border border-[var(--hair-light)] bg-canvas p-7 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
+                <div className="flex h-full flex-col rounded-[24px] glass-card p-7 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
                   <div className="grid h-12 w-12 place-items-center rounded-xl bg-evergreen-50 text-evergreen-600"><IconC size={24} /></div>
                   <h3 className="mt-5 font-serif text-[1.4rem]">{s.title}</h3>
                   <p className="mt-2 text-[0.96rem] text-neutral-500">{s.desc}</p>
@@ -130,7 +130,7 @@ export default function HomePage() {
         <RevealGroup className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5" gap={0.06}>
           {TEAM.map((m) => (
             <RevealItem key={m.name}>
-              <div className="overflow-hidden rounded-[20px] border border-[var(--hair-light)] bg-canvas transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
+              <div className="overflow-hidden rounded-[20px] glass-card transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
                 <div className={`grid aspect-square place-items-center bg-gradient-to-br ${m.grad} font-serif text-[2rem] text-canvas`}>{m.mono}</div>
                 <div className="p-4"><div className="font-medium">{m.name}</div><div className="text-[0.84rem] text-neutral-500">{m.role}</div></div>
               </div>
@@ -147,7 +147,7 @@ export default function HomePage() {
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
           {QUOTES.map((qt) => (
             <Reveal key={qt.n} className={qt.lead ? "lg:row-span-2" : ""}>
-              <figure className={`flex h-full flex-col rounded-[24px] p-7 sm:p-8 ${qt.lead ? "bg-ink text-[var(--on-ink)]" : "border border-[var(--hair-light)] bg-canvas"}`}>
+              <figure className={`flex h-full flex-col rounded-[24px] p-7 sm:p-8 ${qt.lead ? "bg-ink text-[var(--on-ink)]" : "glass-card"}`}>
                 <div className={`font-serif text-[3rem] leading-[0.4] ${qt.lead ? "text-evergreen-300" : "text-evergreen-500"}`}>&ldquo;</div>
                 <blockquote className={`mt-4 font-serif leading-snug ${qt.lead ? "text-[clamp(1.5rem,2.4vw,2rem)]" : "text-[1.2rem]"}`}>{qt.q}</blockquote>
                 <figcaption className="mt-auto flex items-center gap-3 pt-6">

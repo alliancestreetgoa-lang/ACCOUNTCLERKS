@@ -121,7 +121,7 @@ export function ResourcesHub({ resources }: { resources: Resource[] }) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.97 }}
                 transition={{ duration: 0.25, ease: easeOut }}
-                className={`group flex flex-col rounded-[22px] border border-[var(--hair-light)] bg-canvas p-6 transition-[transform,border-color,box-shadow] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200 hover:shadow-e2 ${
+                className={`group flex flex-col rounded-[22px] glass-card p-6 transition-[transform,border-color,box-shadow] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200 hover:shadow-e2 ${
                   r.featured ? "sm:col-span-2 lg:col-span-1" : ""
                 }`}
               >

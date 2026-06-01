@@ -51,7 +51,7 @@ export default function ContactPage() {
               {ASSURANCES.map((a) => {
                 const IconC = a.icon;
                 return (
-                  <div key={a.t} className="rounded-2xl border border-[var(--hair-light)] bg-canvas p-5">
+                  <div key={a.t} className="rounded-2xl glass-card p-5">
                     <IconC size={20} className="text-evergreen-600" />
                     <div className="mt-3 text-[0.95rem] font-medium">{a.t}</div>
                     <p className="mt-1 text-[0.85rem] text-neutral-500">{a.d}</p>

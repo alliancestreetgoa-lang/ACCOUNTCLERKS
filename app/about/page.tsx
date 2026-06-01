@@ -86,7 +86,7 @@ export default function AboutPage() {
             const IconC = v.icon;
             return (
               <RevealItem key={v.title}>
-                <div className="flex h-full flex-col rounded-[24px] border border-[var(--hair-light)] bg-canvas p-7 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
+                <div className="flex h-full flex-col rounded-[24px] glass-card p-7 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
                   <div className="grid h-11 w-11 place-items-center rounded-xl bg-evergreen-50 text-evergreen-600"><IconC size={22} /></div>
                   <h3 className="mt-5 font-serif text-[1.3rem] leading-tight">{v.title}</h3>
                   <p className="mt-2 text-[0.95rem] text-neutral-500">{v.desc}</p>
@@ -118,7 +118,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="flex h-full flex-col rounded-[28px] border border-[var(--hair-light)] bg-canvas p-9">
+            <div className="flex h-full flex-col rounded-[28px] glass-card p-9">
               <div className="flex items-center gap-3">
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-neutral-900 text-canvas"><Icon.users size={22} /></span>
                 <h3 className="font-serif text-[1.6rem]">We follow</h3>
@@ -145,7 +145,7 @@ export default function AboutPage() {
         <RevealGroup className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5" gap={0.06}>
           {TEAM.map((m) => (
             <RevealItem key={m.name}>
-              <div className="group overflow-hidden rounded-[20px] border border-[var(--hair-light)] bg-canvas transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
+              <div className="group overflow-hidden rounded-[20px] glass-card transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
                 <div className={`grid aspect-square place-items-center bg-gradient-to-br ${m.grad} font-serif text-[2rem] text-canvas`}>{m.mono}</div>
                 <div className="p-4">
                   <div className="font-medium">{m.name}</div>

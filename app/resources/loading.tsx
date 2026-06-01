@@ -17,7 +17,7 @@ export default function ResourcesLoading() {
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="rounded-[22px] border border-[var(--hair-light)] bg-canvas p-6">
+            <div key={i} className="rounded-[22px] glass-card p-6">
               <div className="h-6 w-20 rounded-full bg-neutral-100" />
               <div className="mt-4 h-5 w-5/6 rounded bg-neutral-100" />
               <div className="mt-2 h-4 w-full rounded bg-neutral-50" />

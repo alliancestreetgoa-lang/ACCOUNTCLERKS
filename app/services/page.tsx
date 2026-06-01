@@ -138,7 +138,7 @@ export default function ServicesPage() {
               </Reveal>
 
               <Reveal delay={0.1}>
-                <div className="rounded-[28px] border border-[var(--hair-light)] bg-canvas p-7 shadow-e2">
+                <div className="rounded-[28px] glass-card p-7 shadow-e2">
                   <div className="mb-5 flex items-center justify-between">
                     <span className="text-[0.8rem] text-neutral-400">Illustrative outcome</span>
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-evergreen-50 px-2.5 py-1 text-[0.72rem] font-medium text-evergreen-700">
@@ -202,7 +202,7 @@ export default function ServicesPage() {
         <RevealGroup className="mt-12 grid gap-5 md:grid-cols-3" gap={0.08}>
           {CASES.map((c) => (
             <RevealItem key={c.title}>
-              <a href="/resources?type=case-studies" className="group flex h-full flex-col rounded-[24px] border border-[var(--hair-light)] bg-canvas p-7 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
+              <a href="/resources?type=case-studies" className="group flex h-full flex-col rounded-[24px] glass-card p-7 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
                 <span className="text-[0.72rem] font-medium uppercase tracking-[0.1em] text-evergreen-600">{c.tag}</span>
                 <div className="mt-4 font-serif text-[2.4rem] leading-none text-neutral-900 figure">{c.metric}</div>
                 <h3 className="mt-3 text-[1.15rem] font-medium leading-snug">{c.title}</h3>

@@ -107,7 +107,7 @@ export function ContactForm() {
         initial={reduce ? { opacity: 1 } : { opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: easeOut }}
-        className="flex flex-col items-center rounded-[28px] border border-[var(--hair-light)] bg-canvas p-10 text-center shadow-e2"
+        className="flex flex-col items-center rounded-[28px] glass-card p-10 text-center shadow-e2"
       >
         <div className="grid h-14 w-14 place-items-center rounded-full bg-evergreen-50 text-evergreen-600">
           <Icon.check size={28} />
@@ -122,7 +122,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="rounded-[28px] border border-[var(--hair-light)] bg-canvas p-7 shadow-e2 sm:p-9">
+    <div className="rounded-[28px] glass-card p-7 shadow-e2 sm:p-9">
       {/* Progress */}
       <div className="mb-7 flex items-center gap-3">
         {STEPS.map((label, i) => (

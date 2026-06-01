@@ -76,17 +76,21 @@ export function FinancialDashboard() {
           <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
           <span className="ml-2 text-[0.8rem] text-[var(--on-ink-mut)]">ACCOUNTCLERKS · Live financial dashboard</span>
         </div>
-        <div className="flex gap-1 rounded-full border border-[var(--hair-dark)] p-1">
+        <div className="flex gap-1 rounded-full border border-white/15 bg-white/5 p-1 backdrop-blur-md">
           {TABS.map((t) => (
             <button
               key={t.key}
               onClick={() => setTab(t.key)}
               className={`relative rounded-full px-4 py-1.5 text-[0.82rem] font-medium transition-colors ${
-                tab === t.key ? "text-neutral-900" : "text-[var(--on-ink-mut)] hover:text-[var(--on-ink)]"
+                tab === t.key ? "text-canvas" : "text-[var(--on-ink-mut)] hover:text-[var(--on-ink)]"
               }`}
             >
               {tab === t.key && (
-                <motion.span layoutId="dash-pill" className="absolute inset-0 rounded-full bg-evergreen-300" transition={{ duration: 0.3, ease: easeOut }} />
+                <motion.span
+                  layoutId="dash-pill"
+                  className="absolute inset-0 overflow-hidden rounded-full border border-white/30 bg-evergreen-500/80 shadow-[inset_0_1px_0_rgba(255,255,255,.5),0_6px_18px_-6px_rgba(107,46,147,.75)] backdrop-blur-md before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/35 before:to-transparent"
+                  transition={{ duration: 0.3, ease: easeOut }}
+                />
               )}
               <span className="relative z-10">{t.label}</span>
             </button>

@@ -115,11 +115,13 @@ export function IndustryExplorer() {
             <button
               key={it.key}
               onClick={() => setActive(i)}
-              className={`flex shrink-0 items-center gap-3 rounded-2xl border px-4 py-3.5 text-left transition-[background-color,border-color,transform] duration-200 ease-out-strong lg:w-full ${
-                on ? "border-transparent bg-neutral-900 text-canvas" : "border-[var(--hair-light)] bg-canvas text-neutral-700 hover:border-neutral-300"
+              className={`flex shrink-0 items-center gap-3 overflow-hidden rounded-2xl border px-4 py-3.5 text-left backdrop-blur-md transition-[background-color,border-color,transform] duration-200 ease-out-strong lg:w-full ${
+                on
+                  ? "border-white/25 bg-evergreen-500/85 text-canvas shadow-[inset_0_1px_0_rgba(255,255,255,.4),0_10px_24px_-10px_rgba(107,46,147,.6)]"
+                  : "glass-card text-neutral-700 hover:bg-white/75"
               }`}
             >
-              <span className={`grid h-9 w-9 place-items-center rounded-lg ${on ? "bg-evergreen-500 text-canvas" : "bg-evergreen-50 text-evergreen-600"}`}>
+              <span className={`grid h-9 w-9 place-items-center rounded-lg ${on ? "bg-white/25 text-canvas" : "bg-evergreen-50 text-evergreen-600"}`}>
                 <IconC size={18} />
               </span>
               <span className="font-medium">{it.name}</span>
@@ -129,7 +131,7 @@ export function IndustryExplorer() {
       </div>
 
       {/* Detail panel */}
-      <div className="rounded-[28px] border border-[var(--hair-light)] bg-canvas p-7 shadow-e1 sm:p-9">
+      <div className="rounded-[28px] glass-card p-7 shadow-e1 sm:p-9">
         <AnimatePresence mode="wait">
           <motion.div
             key={ind.key}

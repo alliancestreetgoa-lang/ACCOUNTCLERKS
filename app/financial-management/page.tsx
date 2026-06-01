@@ -77,7 +77,7 @@ export default function FinancialManagementPage() {
             const IconC = a.icon;
             return (
               <RevealItem key={a.title}>
-                <div className="group flex h-full flex-col rounded-[24px] border border-[var(--hair-light)] bg-canvas p-7 transition-[transform,border-color,box-shadow] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200 hover:shadow-e2">
+                <div className="group flex h-full flex-col rounded-[24px] glass-card p-7 transition-[transform,border-color,box-shadow] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200 hover:shadow-e2">
                   <div className="flex items-center justify-between">
                     <div className="grid h-11 w-11 place-items-center rounded-xl bg-evergreen-50 text-evergreen-600">
                       <IconC size={22} />
@@ -117,7 +117,7 @@ export default function FinancialManagementPage() {
               { v: "100%", l: "Decisions backed by data" },
             ].map((s) => (
               <RevealItem key={s.l}>
-                <div className="rounded-2xl border border-[var(--hair-light)] bg-canvas p-6">
+                <div className="rounded-2xl glass-card p-6">
                   <div className="font-serif text-[2rem] leading-none figure">{s.v}</div>
                   <div className="mt-2 text-[0.88rem] text-neutral-500">{s.l}</div>
                 </div>
