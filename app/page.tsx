@@ -72,8 +72,8 @@ export default function HomePage() {
       </Section>
 
       {/* GROWTH JOURNEY */}
-      <Section id="growth-journey" surface="ink" className="scroll-mt-20 !pb-0">
-        <Reveal>
+      <Section id="growth-journey" surface="ink" className="scroll-mt-20">
+        <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <SectionHead center onDark eyebrow="The growth journey" title="From raw data to real growth." lead="Every client moves through the same four stages with us — scroll the journey." />
         </Reveal>
       </Section>

@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { LoadingScreen } from "@/components/motion/LoadingScreen";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Analytics } from "@/components/analytics/Analytics";
 import { ConsentBanner } from "@/components/analytics/ConsentBanner";
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${fraunces.variable} ${mono.variable}`}>
       <body className="grain font-sans antialiased">
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <SmoothScroll />
         <LoadingScreen />
         <ScrollProgress />
         <a

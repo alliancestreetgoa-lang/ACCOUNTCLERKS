@@ -13,25 +13,25 @@ export const springBouncy: Transition = { type: "spring", duration: 0.5, bounce:
 
 /** Fade + rise + subtle scale. Used for scroll reveals. */
 export const reveal: Variants = {
-  hidden: { opacity: 0, y: 18, scale: 0.985 },
+  hidden: { opacity: 0, y: 38, scale: 0.96 },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.7, ease: easeOut },
+    transition: { duration: 0.9, ease: easeOut },
   },
 };
 
 /** Container that staggers its children. */
-export const stagger = (gap = 0.06, delay = 0): Variants => ({
+export const stagger = (gap = 0.09, delay = 0): Variants => ({
   hidden: {},
   show: { transition: { staggerChildren: gap, delayChildren: delay } },
 });
 
 /** Child item for staggered containers. */
 export const staggerItem: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  hidden: { opacity: 0, y: 30, scale: 0.97 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: easeOut } },
 };
 
 /** Headline word-by-word reveal. */
@@ -40,4 +40,4 @@ export const wordReveal: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut } },
 };
 
-export const viewportOnce = { once: true, margin: "0px 0px -8% 0px" } as const;
+export const viewportOnce = { once: true, margin: "0px 0px -14% 0px" } as const;
