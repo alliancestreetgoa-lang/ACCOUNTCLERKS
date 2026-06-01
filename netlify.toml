@@ -1,0 +1,9 @@
+# Netlify build config for the ACCOUNTCLERKS Next.js static export.
+# Served from the root domain, so BASE_PATH stays empty (the default in
+# next.config.mjs) and assets resolve at /_next/... correctly.
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"

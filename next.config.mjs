@@ -3,8 +3,11 @@ import { dirname } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// GitHub Pages serves a project repo at /<repo>. Apply basePath in production builds.
-const basePath = process.env.NODE_ENV === "production" ? "/ACCOUNTCLERKS" : "";
+// Base path depends on the host:
+//   - Root domains (Netlify, custom domain, local) → "" (assets served from /)
+//   - GitHub Pages project site → "/ACCOUNTCLERKS" (served from a subpath)
+// Default to root; the GitHub Pages workflow sets BASE_PATH=/ACCOUNTCLERKS explicitly.
+const basePath = process.env.BASE_PATH ?? "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
