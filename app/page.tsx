@@ -90,16 +90,16 @@ export default function HomePage() {
       </Section>
 
       {/* ABOUT */}
-      <Section id="about" surface="ink" className="scroll-mt-20">
+      <Section id="about" surface="canvas" className="scroll-mt-20">
         <div className="grid items-center gap-[clamp(32px,5vw,72px)] lg:grid-cols-2">
           <Reveal>
-            <SectionHead onDark eyebrow="About us" title="The clerk who reads the book." />
-            <p className="mt-5 max-w-[48ch] text-[1.05rem] text-[var(--on-ink-mut)]">
+            <SectionHead eyebrow="About us" title="The clerk who reads the book." />
+            <p className="mt-5 max-w-[48ch] text-[1.05rem] text-neutral-500">
               We kept the discipline of the original record-keeper and dropped the dust. Today the clerk doesn't just keep the book — they read it, and help you write the next chapter.
             </p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
               {VALUES.map((v) => (
-                <span key={v} className="relative pl-4 text-[0.95rem] text-[var(--on-ink)] before:absolute before:left-0 before:top-[0.6em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-evergreen-300">
+                <span key={v} className="relative pl-4 text-[0.95rem] text-neutral-700 before:absolute before:left-0 before:top-[0.6em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-evergreen-500">
                   {v}
                 </span>
               ))}
@@ -107,9 +107,9 @@ export default function HomePage() {
           </Reveal>
           <RevealGroup className="grid gap-5 sm:grid-cols-2" gap={0.1}>
             <RevealItem>
-              <div className="h-full rounded-[24px] border border-[var(--hair-dark)] bg-white/[0.03] p-7">
-                <span className="text-[0.72rem] font-medium uppercase tracking-[0.14em] text-evergreen-300">Mission</span>
-                <p className="mt-3 font-serif text-[1.25rem] leading-snug">Give every ambitious company the financial clarity that usually only the largest can afford.</p>
+              <div className="h-full rounded-[24px] glass-card p-7">
+                <span className="text-[0.72rem] font-medium uppercase tracking-[0.14em] text-evergreen-600">Mission</span>
+                <p className="mt-3 font-serif text-[1.25rem] leading-snug text-neutral-900">Give every ambitious company the financial clarity that usually only the largest can afford.</p>
               </div>
             </RevealItem>
             <RevealItem>

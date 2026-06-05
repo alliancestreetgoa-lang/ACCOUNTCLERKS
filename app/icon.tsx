@@ -14,14 +14,16 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#6B2E93",
-          color: "#FBFAFC",
-          fontSize: 22,
-          fontWeight: 700,
+          background: "#fff",
           borderRadius: 7,
         }}
       >
-        A
+        {/* ACCOUNTCLERKS badge — isometric cube mark */}
+        <svg width="24" height="24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 6 L91 30 L50 54 L9 30 Z" fill="#8B4FB0" />
+          <path d="M9 30 L50 54 L50 96 L9 72 Z" fill="#4B2175" />
+          <path d="M91 30 L91 72 L50 96 L50 54 Z" fill="#C71C77" />
+        </svg>
       </div>
     ),
     size

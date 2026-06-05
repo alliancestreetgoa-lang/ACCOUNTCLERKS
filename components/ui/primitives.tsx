@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ParticleField } from "@/components/sections/ParticleField";
+import { Badge } from "@/components/ui/Badge";
 
 /** Dark sections share the hero's gradient + drifting particle backdrop. */
 const INK_BG =
@@ -52,11 +53,12 @@ export function Eyebrow({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-[0.6em] text-[0.72rem] font-medium uppercase tracking-[0.16em] before:h-px before:w-[26px] before:bg-current before:opacity-50",
+        "inline-flex items-center gap-[0.55em] text-[0.72rem] font-medium uppercase tracking-[0.16em]",
         onDark ? "text-evergreen-300" : "text-evergreen-600",
         center && "justify-center"
       )}
     >
+      <Badge className="h-[1.15em] w-[1.15em]" />
       {children}
     </span>
   );

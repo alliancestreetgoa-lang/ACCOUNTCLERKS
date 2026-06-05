@@ -22,3 +22,6 @@ studio/.env
 .vercel
 .idea
 .vscode
+
+# typescript build info
+tsconfig.tsbuildinfo

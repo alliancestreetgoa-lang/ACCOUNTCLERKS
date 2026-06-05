@@ -22,15 +22,15 @@ export function Reveal({
   className?: string;
   as?: "div" | "span" | "li";
 }) {
-  const Tag = as as React.ElementType;
-  return (
-    <Tag
-      className={clsx("reveal", className)}
-      style={delay ? { transitionDelay: `${delay}s` } : undefined}
-    >
-      {children}
-    </Tag>
-  );
+  // Explicit elements (not a dynamic tag): @react-three/fiber augments the global
+  // JSX namespace, which collapses a dynamically-typed tag's children to `never`.
+  const props = {
+    className: clsx("reveal", className),
+    style: delay ? { transitionDelay: `${delay}s` } : undefined,
+  };
+  if (as === "span") return <span {...props}>{children}</span>;
+  if (as === "li") return <li {...props}>{children}</li>;
+  return <div {...props}>{children}</div>;
 }
 
 /** Wrapper whose RevealItem children reveal in a staggered cascade (CSS-driven). */

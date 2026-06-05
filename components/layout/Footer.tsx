@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
+import { Logo3D } from "@/components/ui/Logo3D";
 
 const COLS = [
   {
@@ -33,14 +35,11 @@ const COLS = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#070806] py-[clamp(48px,6vh,72px)] text-[var(--on-ink-mut)]">
+    <footer className="border-t border-neutral-200 bg-white py-[clamp(48px,6vh,72px)] text-neutral-500">
       <div className="wrap">
         <div className="grid gap-8 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
-            <Link href="/" className="mb-4 inline-flex items-center" aria-label="ACCOUNTCLERKS home">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`} alt="ACCOUNTCLERKS — Beyond the Numbers" className="h-[46px] w-auto rounded-xl bg-white px-3.5 py-2 shadow-[0_8px_22px_-6px_rgba(0,0,0,.5)] ring-1 ring-white/10" />
-            </Link>
+            <Logo3D height={46} className="mb-4" />
             <p className="mb-5 max-w-[30ch] text-[0.9rem]">
               Strategic finance and accounting, run on software that closes the month for you.
             </p>
@@ -50,23 +49,27 @@ export function Footer() {
           </div>
           {COLS.map((col) => (
             <div key={col.title}>
-              <h4 className="mb-4 text-[0.76rem] font-medium uppercase tracking-[0.1em] text-[var(--on-ink-faint)]">
+              <h4 className="mb-4 flex items-center gap-1.5 text-[0.76rem] font-medium uppercase tracking-[0.1em] text-neutral-400">
+                <Badge className="h-3.5 w-3.5" />
                 {col.title}
               </h4>
               {col.links.map(([label, href]) => (
-                <Link key={label} href={href} className="block py-1.5 text-[0.9rem] transition-colors hover:text-[var(--on-ink)]">
+                <Link key={label} href={href} className="block py-1.5 text-[0.9rem] transition-colors hover:text-evergreen-600">
                   {label}
                 </Link>
               ))}
             </div>
           ))}
         </div>
-        <div className="mt-12 flex flex-wrap justify-between gap-4 border-t border-[var(--hair-dark)] pt-6 text-[0.82rem] text-[var(--on-ink-faint)]">
-          <span>© 2026 ACCOUNTCLERKS — Beyond the Numbers.</span>
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-neutral-200 pt-6 text-[0.82rem] text-neutral-400">
+          <span className="flex items-center gap-2">
+            <Badge className="h-4 w-4" />
+            © 2026 ACCOUNTCLERKS — Beyond the Numbers.
+          </span>
           <span className="flex flex-wrap gap-x-4 gap-y-1">
-            <Link href="/privacy" className="transition-colors hover:text-[var(--on-ink)]">Privacy</Link>
-            <Link href="/terms" className="transition-colors hover:text-[var(--on-ink)]">Terms</Link>
-            <Link href="/security" className="transition-colors hover:text-[var(--on-ink)]">Security</Link>
+            <Link href="/privacy" className="transition-colors hover:text-evergreen-600">Privacy</Link>
+            <Link href="/terms" className="transition-colors hover:text-evergreen-600">Terms</Link>
+            <Link href="/security" className="transition-colors hover:text-evergreen-600">Security</Link>
           </span>
         </div>
       </div>

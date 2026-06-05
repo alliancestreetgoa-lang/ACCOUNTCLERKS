@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { easeOut } from "@/lib/motion";
+import { Badge } from "@/components/ui/Badge";
 
 /**
  * Branded first-load curtain. Shows once per session, then wipes up.
@@ -38,7 +39,7 @@ export function LoadingScreen() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: easeOut }}
           >
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-evergreen-500 font-sans text-base font-semibold text-canvas">A</span>
+            <Badge className="h-10 w-10 drop-shadow-[0_4px_14px_rgba(107,46,147,0.55)]" />
             <span className="font-serif text-2xl tracking-[-0.01em]">ACCOUNTCLERKS</span>
           </motion.div>
           <motion.div className="mt-6 h-px w-40 overflow-hidden bg-white/15" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
