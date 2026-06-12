@@ -8,7 +8,7 @@ export function ToolCallout() {
   return (
     <Reveal>
       <div
-        className="relative grid items-center gap-8 overflow-hidden rounded-[28px] border border-[var(--hair-dark)] p-8 text-[var(--on-ink)] shadow-e3 md:grid-cols-[1.15fr_1fr] md:p-10"
+        className="glass-ink relative grid items-center gap-8 overflow-hidden rounded-[28px] border border-[var(--hair-dark)] p-8 text-[var(--on-ink)] shadow-e3 md:grid-cols-[1.15fr_1fr] md:p-10"
         style={{
           background:
             "radial-gradient(90% 120% at 0% 0%, rgba(107,46,147,.45), transparent 55%), radial-gradient(80% 120% at 100% 100%, rgba(41,171,226,.20), transparent 55%), linear-gradient(160deg, #1D0F30, #160A24)",
@@ -31,7 +31,7 @@ export function ToolCallout() {
         </div>
 
         {/* Decorative mini-result */}
-        <div className="rounded-[20px] border border-[var(--hair-dark)] bg-black/20 p-6 backdrop-blur-sm" aria-hidden>
+        <div className="glass-ink rounded-[20px] border border-[var(--hair-dark)] bg-black/20 p-6 backdrop-blur-sm" aria-hidden>
           <div className="flex items-start justify-between">
             <div>
               <div className="text-[0.7rem] uppercase tracking-[0.1em] text-[var(--on-ink-faint)]">Estimated runway</div>

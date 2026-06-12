@@ -113,7 +113,7 @@ export default function HomePage() {
               </div>
             </RevealItem>
             <RevealItem>
-              <div className="h-full rounded-[24px] bg-gradient-to-br from-evergreen-600 to-cyan-600 p-7 text-canvas">
+              <div className="glass-ink h-full rounded-[24px] bg-gradient-to-br from-evergreen-600 to-cyan-600 p-7 text-canvas">
                 <span className="text-[0.72rem] font-medium uppercase tracking-[0.14em] text-white/70">Vision</span>
                 <p className="mt-3 font-serif text-[1.25rem] leading-snug">Finance as a company's sharpest decision-making instrument — not its slowest obligation.</p>
               </div>
@@ -160,7 +160,7 @@ export default function HomePage() {
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
           {QUOTES.map((qt, idx) => (
             <Reveal key={qt.n} className={qt.lead ? "lg:row-span-2" : ""}>
-              <figure className={`testimonial-card flex h-full flex-col rounded-[24px] p-7 sm:p-8 ${qt.lead ? "bg-ink text-[var(--on-ink)]" : "glass-card"}`}>
+              <figure className={`testimonial-card flex h-full flex-col rounded-[24px] p-7 sm:p-8 ${qt.lead ? "glass-ink bg-ink text-[var(--on-ink)]" : "glass-card"}`}>
                 <div className={`font-serif text-[3rem] leading-[0.4] ${qt.lead ? "text-evergreen-300" : "text-evergreen-500"}`}>&ldquo;</div>
                 <blockquote className={`mt-4 font-serif leading-snug ${qt.lead ? "text-[clamp(1.5rem,2.4vw,2rem)]" : "text-[1.2rem]"}`}>{qt.q}</blockquote>
                 <figcaption className="mt-auto flex items-center gap-3 pt-6">

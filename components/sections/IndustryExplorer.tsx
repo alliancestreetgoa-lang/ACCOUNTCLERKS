@@ -157,7 +157,7 @@ export function IndustryExplorer() {
             </motion.div>
 
             {/* Case study */}
-            <div className="mt-8 flex flex-col items-start gap-5 rounded-2xl bg-cream p-6 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col items-start gap-5 rounded-2xl glass-card p-6 sm:flex-row sm:items-center">
               <div className="font-serif text-[2.6rem] leading-none text-evergreen-700 figure">{ind.story.metric}</div>
               <div className="flex-1">
                 <div className="text-[1.05rem] font-medium">{ind.story.title}</div>
