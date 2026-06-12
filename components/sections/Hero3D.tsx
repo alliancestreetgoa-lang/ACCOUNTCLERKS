@@ -19,8 +19,8 @@ export function Hero3D() {
           "radial-gradient(150% 120% at 85% -5%, rgba(107,46,147,.28) 0%, transparent 55%), radial-gradient(120% 100% at -5% 110%, rgba(41,171,226,.24) 0%, transparent 55%), radial-gradient(80% 70% at 50% 60%, rgba(216,27,126,.07) 0%, transparent 65%), #f7f4fd",
       }}
     >
-      {/* Soft particle field on light background */}
-      <ParticleField className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-30" />
+      {/* Vivid pink/purple/blue particles on light background */}
+      <ParticleField className="pointer-events-none absolute inset-0 z-0 h-full w-full" colorScheme="light" />
 
       <div {...(reduce ? {} : { "data-scroll": true, "data-scroll-speed": 1.4 })} className="wrap relative z-10">
         <motion.div variants={stagger(0.08)} initial={reduce ? "show" : "hidden"} animate="show" className="mx-auto max-w-6xl text-center">

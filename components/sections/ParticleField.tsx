@@ -8,14 +8,33 @@ import { useEffect, useRef } from "react";
  * - `interactive` enables cursor attract+swirl.
  * Pauses when off-screen (IntersectionObserver) or tab hidden; reduced-motion safe.
  */
+/** Default dark-surface palette (cream + brand colours). */
+const DARK_COLORS = [
+  [243, 239, 229], [243, 239, 229], [243, 239, 229],
+  [176, 127, 208], [176, 127, 208],
+  [41, 171, 226],
+  [216, 27, 126],
+];
+
+/** Vivid palette for light surfaces — no white, all brand colour. */
+const LIGHT_COLORS = [
+  [107, 46, 147], [107, 46, 147],   // brand purple ×2
+  [176, 127, 208], [176, 127, 208], // light purple ×2
+  [41, 171, 226], [41, 171, 226],   // cyan blue ×2
+  [216, 27, 126],                   // pink ×1
+  [150, 60, 200],                   // mid purple ×1
+];
+
 export function ParticleField({
   className,
   density = 1,
   interactive = true,
+  colorScheme = "dark",
 }: {
   className?: string;
   density?: number;
   interactive?: boolean;
+  colorScheme?: "dark" | "light";
 }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -27,12 +46,7 @@ export function ParticleField({
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    const COLORS = [
-      [243, 239, 229], [243, 239, 229], [243, 239, 229],
-      [176, 127, 208], [176, 127, 208],
-      [41, 171, 226],
-      [216, 27, 126],
-    ];
+    const COLORS = colorScheme === "light" ? LIGHT_COLORS : DARK_COLORS;
     let w = 0, h = 0, dpr = 1, parts: any[] = [], raf = 0;
     let mx = -9999, my = -9999, visible = true, inView = true;
 
@@ -44,13 +58,14 @@ export function ParticleField({
     };
     const spawn = () => {
       const col = COLORS[(Math.random() * COLORS.length) | 0];
-      const faint = col[0] === 243;
+      const baseA = colorScheme === "light" ? 0.45 : 0.3;
+      const rangeA = colorScheme === "light" ? 0.4 : 0.55;
       return {
         x: Math.random() * w, y: Math.random() * h,
-        r: (Math.random() * 1.5 + 0.4) * dpr,
+        r: (Math.random() * (colorScheme === "light" ? 2.5 : 1.5) + 0.6) * dpr,
         vx: (Math.random() * 0.18 + 0.04) * dpr,
         vy: -(Math.random() * 0.3 + 0.08) * dpr,
-        a: faint ? Math.random() * 0.5 + 0.22 : Math.random() * 0.55 + 0.3,
+        a: Math.random() * rangeA + baseA,
         tw: Math.random() * 6.283, tws: Math.random() * 0.02 + 0.004,
         col,
       };
@@ -127,7 +142,7 @@ export function ParticleField({
       window.removeEventListener("resize", onResize);
       document.removeEventListener("visibilitychange", onVis);
     };
-  }, [density, interactive]);
+  }, [density, interactive, colorScheme]);
 
   return <canvas ref={ref} className={className} aria-hidden />;
 }
