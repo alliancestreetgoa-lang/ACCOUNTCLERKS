@@ -12,8 +12,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: "#FBFAFC",
-        cream: { DEFAULT: "#F2ECF7", 2: "#E6D9F0" },
+        canvas: "#F7F4FD",
+        cream: { DEFAULT: "#EDE6F8", 2: "#DDD0F2" },
         ink: { DEFAULT: "#160A24", 2: "#1D0F30" },
         // Brand purple (logo). Kept under the `evergreen` key so existing
         // utility classes repaint automatically across the app.

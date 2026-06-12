@@ -35,7 +35,7 @@ const COLS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-neutral-200 bg-white py-[clamp(48px,6vh,72px)] text-neutral-500">
+    <footer className="border-t border-purple-100 bg-canvas py-[clamp(48px,6vh,72px)] text-neutral-500" style={{borderColor:'rgba(107,46,147,.15)'}}>
       <div className="wrap">
         <div className="grid gap-8 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
