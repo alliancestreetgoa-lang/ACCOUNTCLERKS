@@ -207,9 +207,8 @@ export default function ServicesPage() {
                 <div className="mt-4 font-serif text-[2.4rem] leading-none text-neutral-900 figure">{c.metric}</div>
                 <h3 className="mt-3 text-[1.15rem] font-medium leading-snug">{c.title}</h3>
                 <p className="mt-2 text-[0.95rem] text-neutral-500">{c.note}</p>
-                <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[0.9rem] font-medium text-evergreen-600">
-                  Read the case study
-                  <span className="transition-transform duration-200 ease-out-strong group-hover:translate-x-1">→</span>
+                <span className="mt-auto pt-6">
+                  <Button href="/resources?type=case-studies" variant="primary" size="sm">Read case study</Button>
                 </span>
               </a>
             </RevealItem>

@@ -163,7 +163,7 @@ export function IndustryExplorer() {
                 <div className="text-[1.05rem] font-medium">{ind.story.title}</div>
                 <p className="mt-1 text-[0.95rem] text-neutral-500">{ind.story.note}</p>
               </div>
-              <Button href="/resources?type=case-studies" variant="secondary" size="sm">Read case study</Button>
+              <Button href="/resources?type=case-studies" variant="primary" size="sm">Read case study</Button>
             </div>
           </motion.div>
         </AnimatePresence>
