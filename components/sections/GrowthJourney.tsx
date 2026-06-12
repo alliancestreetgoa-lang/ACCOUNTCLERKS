@@ -129,7 +129,7 @@ function Stage({ s, flip }: { s: (typeof STAGES)[number]; flip: boolean }) {
       className="grid items-center gap-[clamp(32px,5vw,72px)] lg:grid-cols-2"
     >
       <div className={flip ? "lg:order-2" : ""}>
-        <span className="font-serif text-[clamp(4rem,9vw,7rem)] leading-none" style={{ color: s.accent, opacity: 0.5 }}>{s.n}</span>
+        <span className="font-serif text-[clamp(4rem,9vw,7rem)] leading-none" style={{ color: s.accent }}>{s.n}</span>
         <div className="mt-4 inline-flex items-center gap-2.5 rounded-full border border-neutral-200 px-3.5 py-1.5 text-[0.78rem] font-medium text-neutral-500">
           <IconC size={16} /> {s.sub}
         </div>
