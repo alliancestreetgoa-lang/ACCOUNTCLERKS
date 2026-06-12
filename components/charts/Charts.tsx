@@ -174,8 +174,8 @@ export function DonutGauge({
       </svg>
       <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", textAlign: "center" }}>
         <div>
-          <div className="figure" style={{ fontFamily: "var(--font-fraunces), serif", fontSize: size * 0.22 }}>{value}%</div>
-          {label && <div style={{ fontSize: 11, color: "var(--on-ink-mut)" }}>{label}</div>}
+          <div className="figure" style={{ fontFamily: "var(--font-fraunces), serif", fontSize: size * 0.22, color }}>{value}%</div>
+          {label && <div style={{ fontSize: 11, color: "var(--on-ink-mut)", letterSpacing: "0.06em", textTransform: "uppercase" }}>{label}</div>}
         </div>
       </div>
     </div>
