@@ -60,9 +60,9 @@ export default function HomePage() {
       </Section>
 
       {/* FINANCIAL MANAGEMENT */}
-      <Section id="financial-management" surface="ink" className="scroll-mt-20">
+      <Section id="financial-management" surface="canvas" className="scroll-mt-20">
         <Reveal>
-          <SectionHead onDark eyebrow="Financial management" title="Numbers that tell you what to do next." lead="Forecasting, FP&A, and board-ready reporting — switch views to explore the live picture your team works from." />
+          <SectionHead eyebrow="Financial management" title="Numbers that tell you what to do next." lead="Forecasting, FP&A, and board-ready reporting — switch views to explore the live picture your team works from." />
         </Reveal>
         <Reveal delay={0.1} className="mt-12">
           <FinancialDashboard />
@@ -70,9 +70,9 @@ export default function HomePage() {
       </Section>
 
       {/* GROWTH JOURNEY */}
-      <Section id="growth-journey" surface="ink" className="scroll-mt-20">
+      <Section id="growth-journey" surface="canvas" className="scroll-mt-20">
         <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <SectionHead center onDark eyebrow="The growth journey" title="From raw data to real growth." lead="Every client moves through the same four stages with us — scroll the journey." />
+          <SectionHead center eyebrow="The growth journey" title="From raw data to real growth." lead="Every client moves through the same four stages with us — scroll the journey." />
         </Reveal>
       </Section>
       <GrowthJourney />
