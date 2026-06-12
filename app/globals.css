@@ -229,11 +229,6 @@
   cursor: none !important;
 }
 
-/* Ring brightens on hover over interactive elements */
-.cursor-ring[data-hover="1"] {
-  border-color: rgba(107, 46, 147, 0.85) !important;
-  background: rgba(107, 46, 147, 0.08) !important;
-}
 
 /* ── Floating stat card pulse ─────────────────────────────────────────── */
 @keyframes float-card {
