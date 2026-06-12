@@ -27,6 +27,7 @@ export function Reveal({
   const props = {
     className: clsx("reveal", className),
     style: delay ? { transitionDelay: `${delay}s` } : undefined,
+    suppressHydrationWarning: true,
   };
   if (as === "span") return <span {...props}>{children}</span>;
   if (as === "li") return <li {...props}>{children}</li>;
@@ -48,5 +49,5 @@ export function RevealGroup({
 
 /** Child of RevealGroup (also works standalone) — reveals on scroll. */
 export function RevealItem({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <div className={clsx("reveal", className)}>{children}</div>;
+  return <div className={clsx("reveal", className)} suppressHydrationWarning>{children}</div>;
 }
