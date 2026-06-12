@@ -129,7 +129,7 @@ function Stage({ s, flip }: { s: (typeof STAGES)[number]; flip: boolean }) {
       data-aos={flip ? "fade-left" : "fade-right"}
       data-aos-duration="700"
       data-aos-offset="80"
-      className="grid items-center gap-[clamp(32px,5vw,72px)] lg:grid-cols-2"
+      className="gj-stage grid items-center gap-[clamp(32px,5vw,72px)] lg:grid-cols-2"
     >
       <div className={flip ? "lg:order-2" : ""}>
         <span className="gj-number font-serif text-[clamp(4rem,9vw,7rem)] leading-none" style={{ color: s.accent }}>{s.n}</span>

@@ -65,7 +65,9 @@ export default function HomePage() {
           <SectionHead eyebrow="Financial management" title="Numbers that tell you what to do next." lead="Forecasting, FP&A, and board-ready reporting — switch views to explore the live picture your team works from." />
         </Reveal>
         <Reveal delay={0.1} className="mt-12">
-          <FinancialDashboard />
+          <div id="dashboard-card">
+            <FinancialDashboard />
+          </div>
         </Reveal>
       </Section>
 

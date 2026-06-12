@@ -35,14 +35,7 @@ export function Hero3D() {
                 <motion.span
                   id={`hw-${i}`}
                   variants={wordReveal}
-                  className={`inline-block ${i === 0 ? "italic pb-[0.24em] pr-[0.12em]" : ""}`}
-                  style={i === 0 ? {
-                    background: "linear-gradient(135deg, #7B2AD6 0%, #A81DC4 28%, #D6158C 58%, #00C4F5 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    filter: "drop-shadow(0 2px 18px rgba(168,29,196,.30))",
-                  } : undefined}
+                  className={`inline-block ${i === 0 ? "hero-gradient-text italic pb-[0.24em] pr-[0.12em]" : ""}`}
                 >
                   {word}
                 </motion.span>

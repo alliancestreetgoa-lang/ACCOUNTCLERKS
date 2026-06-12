@@ -94,7 +94,7 @@ export function SectionHead({
           {eyebrow}
         </Eyebrow>
       )}
-      <h2 className="mt-3 font-serif text-[clamp(2.1rem,4.4vw,3.4rem)] leading-[1.06] tracking-[-0.018em]">
+      <h2 className="gsap-heading mt-3 font-serif text-[clamp(2.1rem,4.4vw,3.4rem)] leading-[1.06] tracking-[-0.018em]">
         {title}
       </h2>
       {lead && (
