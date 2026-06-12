@@ -190,7 +190,7 @@ export default function HomePage() {
       {/* CONTACT */}
       <Section id="contact" surface="purple" className="scroll-mt-20">
         <Reveal>
-          <SectionHead center eyebrow="Talk to an expert" title="Start Now, What is your need" lead="Tell us about your business — we'll match you to the right service and get started within the week." />
+          <SectionHead center eyebrow="Talk to an expert" title="Talk To An Expert, What is your need" lead="Tell us about your business — we'll match you to the right service and get started within the week." />
         </Reveal>
         <ContactSection />
       </Section>

@@ -107,7 +107,7 @@ export default function ServicesPage() {
         eyebrow="Our services"
         title={<>Finance services that end in a <span className="italic text-evergreen-300">recommendation</span>.</>}
         lead="Three ways we work with you — from keeping the books to running your entire finance function. Every engagement is owned by a real team, amplified by software."
-        cta={{ label: "Start Now", href: "/contact" }}
+        cta={{ label: "Talk To An Expert", href: "/contact" }}
       />
 
       {/* Service blocks — alternating editorial layout */}
@@ -185,7 +185,7 @@ export default function ServicesPage() {
                 </ul>
                 <div className="mt-auto pt-7">
                   <Button href="/contact" variant={t.featured ? "secondary" : "ghost-dark"} className={t.featured ? "w-full bg-canvas text-neutral-900" : "w-full"}>
-                    Start Now
+                    Talk To An Expert
                   </Button>
                 </div>
               </div>
@@ -233,7 +233,7 @@ export default function ServicesPage() {
           <SectionHead onDark center eyebrow="Hand off the books this month" title="Tell us where it hurts. We'll show you the fix." lead="Twenty minutes to walk your books and a fixed monthly quote." />
         </Reveal>
         <Reveal delay={0.1} className="mt-8 flex justify-center gap-3">
-          <Button href="/contact" variant="primary">Start Now</Button>
+          <Button href="/contact" variant="primary">Talk To An Expert</Button>
           <Button href="/financial-management" variant="ghost-dark">See financial management</Button>
         </Reveal>
       </Section>

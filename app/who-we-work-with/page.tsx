@@ -20,7 +20,7 @@ export default function WhoWeWorkWithPage() {
         eyebrow="Who we work with"
         title={<>Different books. <span className="italic text-evergreen-300">Same clean close.</span></>}
         lead="We speak your industry's numbers. Choose your world below to see the pains we fix, the solutions we bring, and the outcomes we've delivered."
-        cta={{ label: "Start Now", href: "/contact" }}
+        cta={{ label: "Talk To An Expert", href: "/contact" }}
       />
 
       <Section surface="cream">
@@ -37,7 +37,7 @@ export default function WhoWeWorkWithPage() {
           <SectionHead onDark center eyebrow="Not sure you fit a box?" title="Most of our clients don't." lead="If you make, sell, or build something — we can keep its books and read them back to you." />
         </Reveal>
         <Reveal delay={0.1} className="mt-8 flex justify-center gap-3">
-          <Button href="/contact" variant="primary">Start Now</Button>
+          <Button href="/contact" variant="primary">Talk To An Expert</Button>
           <Button href="/services" variant="ghost-dark">Explore services</Button>
         </Reveal>
       </Section>

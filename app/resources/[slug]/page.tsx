@@ -100,7 +100,7 @@ export default async function ResourceDetailPage({ params }: { params: Promise<{
           <div className="mt-12 rounded-[24px] bg-evergreen-700 p-8 text-canvas">
             <h2 className="font-serif text-[1.6rem] leading-tight">Want this handled for you?</h2>
             <p className="mt-2 max-w-[44ch] text-canvas/80">Our team does this every month for 480+ companies. Twenty minutes to see it on your books.</p>
-            <div className="mt-5"><Button href="/contact" variant="secondary" className="bg-canvas text-neutral-900">Start Now</Button></div>
+            <div className="mt-5"><Button href="/contact" variant="secondary" className="bg-canvas text-neutral-900">Talk To An Expert</Button></div>
           </div>
         </article>
       </Section>

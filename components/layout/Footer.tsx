@@ -44,7 +44,7 @@ export function Footer() {
               Strategic finance and accounting, run on software that closes the month for you.
             </p>
             <Button href="/contact" variant="primary" size="sm">
-              Start Now
+              Talk To An Expert
             </Button>
           </div>
           {COLS.map((col) => (
