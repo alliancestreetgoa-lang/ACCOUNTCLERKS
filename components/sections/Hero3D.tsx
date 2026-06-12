@@ -30,7 +30,7 @@ export function Hero3D() {
               <span key={i} className="mr-[0.22em] inline-block align-baseline">
                 <motion.span
                   variants={wordReveal}
-                  className={`inline-block ${i === 0 ? "italic bg-gradient-to-br from-evergreen-500 via-[#D81B7E] to-cyan-500 bg-clip-text pb-[0.24em] pr-[0.12em] text-transparent" : ""}`}
+                  className={`inline-block ${i === 0 ? "italic bg-gradient-to-br from-[#7B2AD6] via-[#E8177E] to-[#00BFEF] bg-clip-text pb-[0.24em] pr-[0.12em] text-transparent" : ""}`}
                 >
                   {word}
                 </motion.span>
