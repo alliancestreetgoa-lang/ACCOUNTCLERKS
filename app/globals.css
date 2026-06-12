@@ -19,7 +19,14 @@
     scroll-behavior: smooth;
   }
   body {
-    background: #eef4fd;
+    /* Fixed gradient — stays in place while content scrolls over it (parallax feel) */
+    background:
+      radial-gradient(ellipse 80% 65% at 6% 10%, rgba(148, 128, 210, .52) 0%, transparent 55%),
+      radial-gradient(ellipse 65% 55% at 95% 12%, rgba(165, 205, 252, .48) 0%, transparent 52%),
+      radial-gradient(ellipse 50% 40% at 48% 90%, rgba(175, 215, 255, .28) 0%, transparent 55%),
+      #f0f3fc;
+    background-attachment: fixed;
+    background-size: cover;
     color: #0e1311;
     font-feature-settings: "ss01";
     -webkit-font-smoothing: antialiased;

@@ -38,19 +38,9 @@ export function Section({
       </section>
     );
   }
-  if (surface === "purple" || surface === "purple-alt") {
-    return (
-      <section id={id} className={cn("py-[clamp(72px,11vh,140px)]", className)} style={{ background: surface === "purple-alt" ? PURPLE_BG_ALT : PURPLE_BG }}>
-        <div className="wrap">{children}</div>
-      </section>
-    );
-  }
-  const surfaces = {
-    canvas: "bg-canvas text-neutral-900",
-    cream: "bg-cream text-neutral-900",
-  } as const;
+  // All non-ink surfaces are transparent — the fixed body gradient shows through
   return (
-    <section id={id} className={cn("py-[clamp(72px,11vh,140px)]", surfaces[surface as "canvas" | "cream"], className)}>
+    <section id={id} className={cn("py-[clamp(72px,11vh,140px)] text-neutral-900", className)}>
       <div className="wrap">{children}</div>
     </section>
   );
