@@ -87,7 +87,7 @@ function StageVisual({ stageKey, accent }: { stageKey: string; accent: string })
 
 export function GrowthJourney() {
   return (
-    <div className="relative text-neutral-900">
+    <div className="relative text-neutral-900" data-aos="fade-up" data-aos-duration="750" data-aos-offset="60">
       <div className="wrap py-24 lg:py-32">
         {/* vertical journey: a connecting rail + four stages that reveal on scroll */}
         <div className="relative grid gap-20 lg:gap-28">
@@ -126,6 +126,9 @@ function Stage({ s, flip }: { s: (typeof STAGES)[number]; flip: boolean }) {
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.7, ease: EASE }}
+      data-aos={flip ? "fade-left" : "fade-right"}
+      data-aos-duration="700"
+      data-aos-offset="80"
       className="grid items-center gap-[clamp(32px,5vw,72px)] lg:grid-cols-2"
     >
       <div className={flip ? "lg:order-2" : ""}>

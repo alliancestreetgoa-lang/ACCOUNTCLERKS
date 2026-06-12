@@ -41,11 +41,11 @@ export default function HomePage() {
           <SectionHead eyebrow="What we do" title="Everything below the line, handled by people who read it." lead="A real finance team owns your books end to end. The software just makes the month-end disappear." />
         </Reveal>
         <RevealGroup className="mt-12 grid gap-5 md:grid-cols-3" gap={0.07}>
-          {SERVICES.map((s) => {
+          {SERVICES.map((s, idx) => {
             const IconC = s.icon;
             return (
               <RevealItem key={s.title}>
-                <div className="flex h-full flex-col rounded-[24px] glass-card p-7 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
+                <div data-aos="fade-up" data-aos-delay={idx * 100} data-aos-duration="600" className="flex h-full flex-col rounded-[24px] glass-card p-7 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
                   <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-evergreen-500 to-cyan-500 text-white shadow-[0_4px_14px_rgba(107,46,147,.35)]"><IconC size={24} /></div>
                   <h3 className="mt-5 font-serif text-[1.4rem]">{s.title}</h3>
                   <p className="mt-2 text-[0.96rem] text-neutral-500">{s.desc}</p>
@@ -126,9 +126,9 @@ export default function HomePage() {
           <SectionHead eyebrow="Meet the team" title="Real people own your books." />
         </Reveal>
         <RevealGroup className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-4" gap={0.06}>
-          {TEAM.map((m) => (
+          {TEAM.map((m, idx) => (
             <RevealItem key={m.name}>
-              <div className="team-glass overflow-hidden rounded-[24px]">
+              <div data-aos="zoom-in" data-aos-delay={idx * 80} data-aos-duration="550" className="team-glass overflow-hidden rounded-[24px]">
                 <span className="team-glass-shine" aria-hidden="true" />
                 <span className="team-glass-border" aria-hidden="true" />
                 <div className="relative z-10 aspect-square overflow-hidden">
@@ -156,9 +156,9 @@ export default function HomePage() {
           <SectionHead eyebrow="In their words" title="The month-end stopped being ours." />
         </Reveal>
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
-          {QUOTES.map((qt) => (
+          {QUOTES.map((qt, idx) => (
             <Reveal key={qt.n} className={qt.lead ? "lg:row-span-2" : ""}>
-              <figure className={`flex h-full flex-col rounded-[24px] p-7 sm:p-8 ${qt.lead ? "bg-ink text-[var(--on-ink)]" : "glass-card"}`}>
+              <figure data-aos="fade-up" data-aos-delay={idx * 100} data-aos-duration="600" className={`flex h-full flex-col rounded-[24px] p-7 sm:p-8 ${qt.lead ? "bg-ink text-[var(--on-ink)]" : "glass-card"}`}>
                 <div className={`font-serif text-[3rem] leading-[0.4] ${qt.lead ? "text-evergreen-300" : "text-evergreen-500"}`}>&ldquo;</div>
                 <blockquote className={`mt-4 font-serif leading-snug ${qt.lead ? "text-[clamp(1.5rem,2.4vw,2rem)]" : "text-[1.2rem]"}`}>{qt.q}</blockquote>
                 <figcaption className="mt-auto flex items-center gap-3 pt-6">

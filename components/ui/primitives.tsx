@@ -30,6 +30,9 @@ export function Section({
     return (
       <section
         id={id}
+        data-aos="fade-up"
+        data-aos-duration="750"
+        data-aos-offset="80"
         className={cn("relative overflow-hidden py-[clamp(72px,11vh,140px)] text-[var(--on-ink)]", className)}
         style={{ background: INK_BG }}
       >
@@ -40,7 +43,13 @@ export function Section({
   }
   // All non-ink surfaces are transparent — the fixed body gradient shows through
   return (
-    <section id={id} className={cn("py-[clamp(72px,11vh,140px)] text-neutral-900", className)}>
+    <section
+      id={id}
+      data-aos="fade-up"
+      data-aos-duration="750"
+      data-aos-offset="80"
+      className={cn("py-[clamp(72px,11vh,140px)] text-neutral-900", className)}
+    >
       <div className="wrap">{children}</div>
     </section>
   );

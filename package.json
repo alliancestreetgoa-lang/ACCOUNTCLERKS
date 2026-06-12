@@ -12,6 +12,7 @@
     "@portabletext/react": "^3.2.4",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
+    "aos": "^2.3.4",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.17",
     "locomotive-scroll": "^4.1.4",
@@ -21,6 +22,7 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.8",
     "@types/node": "^20.14.11",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

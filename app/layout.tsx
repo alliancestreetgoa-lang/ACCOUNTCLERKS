@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { LoadingScreen } from "@/components/motion/LoadingScreen";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { AOSInit } from "@/components/motion/AOSInit";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Analytics } from "@/components/analytics/Analytics";
 import { ConsentBanner } from "@/components/analytics/ConsentBanner";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
+        <AOSInit />
         <Navbar />
         <SmoothScroll>
           <main id="main">{children}</main>
