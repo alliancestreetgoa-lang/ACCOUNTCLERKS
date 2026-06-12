@@ -40,9 +40,9 @@ function leadScore(f: FormState): number {
   return Math.min(100, s);
 }
 
-export function ContactForm() {
+export function ContactForm({ defaultService }: { defaultService?: string }) {
   const [step, setStep] = useState(0);
-  const [form, setForm] = useState<FormState>(EMPTY);
+  const [form, setForm] = useState<FormState>({ ...EMPTY, service: defaultService ?? "" });
   const [file, setFile] = useState<File | null>(null);
   const [status, setStatus] = useState<"idle" | "submitting" | "done" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");

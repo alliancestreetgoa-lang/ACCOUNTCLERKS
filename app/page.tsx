@@ -7,8 +7,8 @@ import { FinancialDashboard } from "@/components/sections/FinancialDashboard";
 import { GrowthJourney } from "@/components/sections/GrowthJourney";
 import { IndustryExplorer } from "@/components/sections/IndustryExplorer";
 import { ToolCallout } from "@/components/sections/ToolCallout";
-import { ContactForm } from "@/components/sections/ContactForm";
-import { CalendlyEmbed } from "@/components/sections/CalendlyEmbed";
+import { ContactSection } from "@/components/sections/ContactSection";
+import Image from "next/image";
 
 const SERVICES = [
   { icon: Icon.ledger, title: "Finance & Accounting", desc: "Every transaction categorized, reconciled, and reviewed by a human before the 5th." },
@@ -19,11 +19,10 @@ const SERVICES = [
 const VALUES = ["Precision is the floor", "Say the real thing", "Own the outcome", "Quietly relentless"];
 
 const TEAM = [
-  { mono: "DR", name: "Daniel Rowe", role: "Lead Clerk · CPA", grad: "from-evergreen-500 to-evergreen-700" },
-  { mono: "SM", name: "Sara Mehta", role: "FP&A Advisor", grad: "from-neutral-700 to-neutral-900" },
-  { mono: "TO", name: "Tom Okafor", role: "Tax Lead · EA", grad: "from-brass-400 to-brass-600" },
-  { mono: "LC", name: "Lena Cruz", role: "Engagement Lead", grad: "from-[#29abe2] to-[#1b75bb]" },
-  { mono: "JP", name: "James Park", role: "Fractional CFO", grad: "from-evergreen-600 to-evergreen-900" },
+  { name: "Alexandra Chen", role: "Lead Clerk · CPA" },
+  { name: "Marcus Reid", role: "FP&A Advisor" },
+  { name: "Sarah Kapoor", role: "Tax Lead · EA" },
+  { name: "James Whitfield", role: "Engagement Lead" },
 ];
 
 const QUOTES = [
@@ -48,7 +47,7 @@ export default function HomePage() {
             return (
               <RevealItem key={s.title}>
                 <div className="flex h-full flex-col rounded-[24px] glass-card p-7 transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
-                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-evergreen-50 text-evergreen-600"><IconC size={24} /></div>
+                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-evergreen-500 to-cyan-500 text-white shadow-[0_4px_14px_rgba(107,46,147,.35)]"><IconC size={24} /></div>
                   <h3 className="mt-5 font-serif text-[1.4rem]">{s.title}</h3>
                   <p className="mt-2 text-[0.96rem] text-neutral-500">{s.desc}</p>
                 </div>
@@ -113,8 +112,8 @@ export default function HomePage() {
               </div>
             </RevealItem>
             <RevealItem>
-              <div className="h-full rounded-[24px] bg-evergreen-700 p-7 text-canvas">
-                <span className="text-[0.72rem] font-medium uppercase tracking-[0.14em] text-evergreen-300">Vision</span>
+              <div className="h-full rounded-[24px] bg-gradient-to-br from-evergreen-600 to-cyan-600 p-7 text-canvas">
+                <span className="text-[0.72rem] font-medium uppercase tracking-[0.14em] text-white/70">Vision</span>
                 <p className="mt-3 font-serif text-[1.25rem] leading-snug">Finance as a company's sharpest decision-making instrument — not its slowest obligation.</p>
               </div>
             </RevealItem>
@@ -127,12 +126,26 @@ export default function HomePage() {
         <Reveal>
           <SectionHead eyebrow="Meet the team" title="Real people own your books." />
         </Reveal>
-        <RevealGroup className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5" gap={0.06}>
+        <RevealGroup className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-4" gap={0.06}>
           {TEAM.map((m) => (
             <RevealItem key={m.name}>
-              <div className="overflow-hidden rounded-[20px] glass-card transition-[transform,border-color] duration-200 ease-out-strong hover:-translate-y-1 hover:border-neutral-200">
-                <div className={`grid aspect-square place-items-center bg-gradient-to-br ${m.grad} font-serif text-[2rem] text-canvas`}>{m.mono}</div>
-                <div className="p-4"><div className="font-medium">{m.name}</div><div className="text-[0.84rem] text-neutral-500">{m.role}</div></div>
+              <div className="team-glass overflow-hidden rounded-[24px]">
+                <span className="team-glass-shine" aria-hidden="true" />
+                <span className="team-glass-border" aria-hidden="true" />
+                <div className="relative z-10 aspect-square overflow-hidden">
+                  <Image
+                    src="/team-photo.jpg"
+                    alt={m.name}
+                    fill
+                    className="object-cover object-[center_8%]"
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                </div>
+                <div className="relative z-10 p-4">
+                  <div className="font-semibold text-neutral-900">{m.name}</div>
+                  <div className="text-[0.84rem] text-neutral-500">{m.role}</div>
+                </div>
               </div>
             </RevealItem>
           ))}
@@ -177,20 +190,11 @@ export default function HomePage() {
       </Section>
 
       {/* CONTACT */}
-      <Section id="contact" surface="ink" className="scroll-mt-20">
+      <Section id="contact" surface="purple" className="scroll-mt-20">
         <Reveal>
-          <SectionHead onDark center eyebrow="Talk to an expert" title="Close your last messy month-end." lead="Tell us about your business and book a 20-minute walkthrough — fixed monthly quote, clerk reconciling by next week." />
+          <SectionHead center eyebrow="Talk to an expert" title="Start Now, What is your need" lead="Tell us about your business — we'll match you to the right service and get started within the week." />
         </Reveal>
-        <div className={process.env.NEXT_PUBLIC_CALENDLY_URL ? "mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2" : "mx-auto mt-12 max-w-xl"}>
-          <Reveal>
-            <ContactForm />
-          </Reveal>
-          {process.env.NEXT_PUBLIC_CALENDLY_URL && (
-            <Reveal delay={0.1}>
-              <CalendlyEmbed url={process.env.NEXT_PUBLIC_CALENDLY_URL} />
-            </Reveal>
-          )}
-        </div>
+        <ContactSection />
       </Section>
     </>
   );

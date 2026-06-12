@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Roof / top-right section: dark purple with lighter peak face -->
+  <polygon points="58,2 100,0 100,40 67,40 67,14" fill="#3d1062"/>
+  <polygon points="58,2 67,14 67,0 58,2" fill="#5c2090"/>
+  <!-- Right wall: magenta/pink -->
+  <rect x="67" y="40" width="33" height="34" fill="#cc1479"/>
+  <!-- Bottom band: light cyan (left portion) -->
+  <polygon points="0,74 67,74 70,90 0,90" fill="#7dcfe8"/>
+  <!-- Bottom band: medium blue (right portion, diagonal split) -->
+  <polygon points="67,74 100,74 100,90 70,90" fill="#4a72c4"/>
+  <!-- Left accent: small dark purple triangle -->
+  <polygon points="0,50 14,50 0,63" fill="#5a1a80"/>
+</svg>
