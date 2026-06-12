@@ -6,9 +6,13 @@ import { Badge } from "@/components/ui/Badge";
 const INK_BG =
   "radial-gradient(100% 90% at 85% 0%, rgba(107,46,147,.30) 0%, rgba(107,46,147,0) 55%), radial-gradient(85% 80% at 8% 100%, rgba(41,171,226,.10) 0%, rgba(41,171,226,0) 55%), radial-gradient(70% 60% at 100% 90%, rgba(216,27,126,.10) 0%, rgba(216,27,126,0) 55%), linear-gradient(168deg, #1D0F30 0%, #160A24 70%)";
 
-/** Light white-purple/blue sections — white base with soft purple + blue radial washes. */
+/** Light white-purple/blue sections — white base with visible purple + blue radial washes. */
 const PURPLE_BG =
-  "radial-gradient(110% 80% at 15% 0%, rgba(107,46,147,.08) 0%, transparent 55%), radial-gradient(80% 70% at 85% 100%, rgba(41,171,226,.07) 0%, transparent 50%), #ffffff";
+  "radial-gradient(130% 90% at 5% 0%, rgba(107,46,147,.13) 0%, transparent 55%), radial-gradient(100% 80% at 95% 100%, rgba(41,171,226,.12) 0%, transparent 50%), radial-gradient(70% 60% at 50% 50%, rgba(216,27,126,.04) 0%, transparent 65%), #ffffff";
+
+/** Alternate purple/blue wash — blue top-right, purple bottom-left for visual variety. */
+const PURPLE_BG_ALT =
+  "radial-gradient(120% 90% at 95% 5%, rgba(41,171,226,.13) 0%, transparent 55%), radial-gradient(100% 80% at 5% 95%, rgba(107,46,147,.12) 0%, transparent 50%), #ffffff";
 
 /** Section wrapper with surface + vertical rhythm. */
 export function Section({
@@ -18,7 +22,7 @@ export function Section({
   className,
 }: {
   children: React.ReactNode;
-  surface?: "canvas" | "cream" | "ink" | "purple";
+  surface?: "canvas" | "cream" | "ink" | "purple" | "purple-alt";
   id?: string;
   className?: string;
 }) {
@@ -34,9 +38,9 @@ export function Section({
       </section>
     );
   }
-  if (surface === "purple") {
+  if (surface === "purple" || surface === "purple-alt") {
     return (
-      <section id={id} className={cn("py-[clamp(72px,11vh,140px)]", className)} style={{ background: PURPLE_BG }}>
+      <section id={id} className={cn("py-[clamp(72px,11vh,140px)]", className)} style={{ background: surface === "purple-alt" ? PURPLE_BG_ALT : PURPLE_BG }}>
         <div className="wrap">{children}</div>
       </section>
     );

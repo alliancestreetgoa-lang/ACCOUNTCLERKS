@@ -8,7 +8,6 @@ import { GrowthJourney } from "@/components/sections/GrowthJourney";
 import { IndustryExplorer } from "@/components/sections/IndustryExplorer";
 import { ToolCallout } from "@/components/sections/ToolCallout";
 import { ContactSection } from "@/components/sections/ContactSection";
-import Image from "next/image";
 
 const SERVICES = [
   { icon: Icon.ledger, title: "Finance & Accounting", desc: "Every transaction categorized, reconciled, and reviewed by a human before the 5th." },
@@ -37,7 +36,7 @@ export default function HomePage() {
       <Hero3D />
 
       {/* SERVICES */}
-      <Section id="services" surface="cream" className="scroll-mt-20">
+      <Section id="services" surface="purple" className="scroll-mt-20">
         <Reveal>
           <SectionHead eyebrow="What we do" title="Everything below the line, handled by people who read it." lead="A real finance team owns your books end to end. The software just makes the month-end disappear." />
         </Reveal>
@@ -79,7 +78,7 @@ export default function HomePage() {
       <GrowthJourney />
 
       {/* WHO WE WORK WITH */}
-      <Section id="who-we-work-with" surface="cream" className="scroll-mt-20">
+      <Section id="who-we-work-with" surface="purple-alt" className="scroll-mt-20">
         <Reveal>
           <SectionHead eyebrow="Who we work with" title="Different books. Same clean close." lead="Pick your world to see the pains we fix and the outcomes we deliver." />
         </Reveal>
@@ -89,7 +88,7 @@ export default function HomePage() {
       </Section>
 
       {/* ABOUT */}
-      <Section id="about" surface="canvas" className="scroll-mt-20">
+      <Section id="about" surface="purple" className="scroll-mt-20">
         <div className="grid items-center gap-[clamp(32px,5vw,72px)] lg:grid-cols-2">
           <Reveal>
             <SectionHead eyebrow="About us" title="The clerk who reads the book." />
@@ -122,7 +121,7 @@ export default function HomePage() {
       </Section>
 
       {/* TEAM */}
-      <Section surface="canvas">
+      <Section surface="purple-alt">
         <Reveal>
           <SectionHead eyebrow="Meet the team" title="Real people own your books." />
         </Reveal>
@@ -133,12 +132,11 @@ export default function HomePage() {
                 <span className="team-glass-shine" aria-hidden="true" />
                 <span className="team-glass-border" aria-hidden="true" />
                 <div className="relative z-10 aspect-square overflow-hidden">
-                  <Image
-                    src="/team-photo.jpg"
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/team-photo.jpg`}
                     alt={m.name}
-                    fill
-                    className="object-cover object-[center_8%]"
-                    sizes="(max-width: 640px) 50vw, 25vw"
+                    className="h-full w-full object-cover object-[center_8%]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
@@ -153,7 +151,7 @@ export default function HomePage() {
       </Section>
 
       {/* TESTIMONIALS */}
-      <Section surface="cream">
+      <Section surface="purple">
         <Reveal>
           <SectionHead eyebrow="In their words" title="The month-end stopped being ours." />
         </Reveal>
@@ -177,7 +175,7 @@ export default function HomePage() {
       </Section>
 
       {/* RESOURCES / TOOL */}
-      <Section id="resources" surface="canvas" className="scroll-mt-20">
+      <Section id="resources" surface="purple-alt" className="scroll-mt-20">
         <Reveal>
           <SectionHead eyebrow="Resources" title="Finance, read out loud." lead="Guides, checklists, and free tools from a team that does this every day." />
         </Reveal>
