@@ -158,7 +158,7 @@ export default function HomePage() {
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
           {QUOTES.map((qt, idx) => (
             <Reveal key={qt.n} className={qt.lead ? "lg:row-span-2" : ""}>
-              <figure data-aos="fade-up" data-aos-delay={idx * 100} data-aos-duration="600" className={`flex h-full flex-col rounded-[24px] p-7 sm:p-8 ${qt.lead ? "bg-ink text-[var(--on-ink)]" : "glass-card"}`}>
+              <figure data-aos="fade-up" data-aos-delay={idx * 100} data-aos-duration="600" className={`testimonial-card flex h-full flex-col rounded-[24px] p-7 sm:p-8 ${qt.lead ? "bg-ink text-[var(--on-ink)]" : "glass-card"}`}>
                 <div className={`font-serif text-[3rem] leading-[0.4] ${qt.lead ? "text-evergreen-300" : "text-evergreen-500"}`}>&ldquo;</div>
                 <blockquote className={`mt-4 font-serif leading-snug ${qt.lead ? "text-[clamp(1.5rem,2.4vw,2rem)]" : "text-[1.2rem]"}`}>{qt.q}</blockquote>
                 <figcaption className="mt-auto flex items-center gap-3 pt-6">

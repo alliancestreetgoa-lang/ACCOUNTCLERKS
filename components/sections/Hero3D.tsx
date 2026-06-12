@@ -13,12 +13,16 @@ export function Hero3D() {
 
   return (
     <section id="hero-section" className="relative flex min-h-[100svh] items-center overflow-hidden pt-[76px]">
-      {/* Vivid pink/purple/blue particles on light background */}
-      <ParticleField className="pointer-events-none absolute inset-0 z-0 h-full w-full" colorScheme="light" />
+      {/* Particles — separate scroll layer, moves slightly slower */}
+      <div {...(reduce ? {} : { "data-scroll": true, "data-scroll-speed": "0.6" })} className="pointer-events-none absolute inset-0 z-0 h-full w-full">
+        <ParticleField className="h-full w-full" colorScheme="light" />
+      </div>
 
-      <div id="hero-content" {...(reduce ? {} : { "data-scroll": true, "data-scroll-speed": 1.4 })} className="wrap relative z-10">
+      <div id="hero-content" {...(reduce ? {} : { "data-scroll": true, "data-scroll-speed": "1.4" })} className="wrap relative z-10">
         <motion.div variants={stagger(0.08)} initial={reduce ? "show" : "hidden"} animate="show" className="mx-auto max-w-6xl text-center">
+
           <motion.span
+            id="hero-eyebrow"
             variants={wordReveal}
             className="inline-flex items-center gap-[0.6em] text-[0.72rem] font-medium uppercase tracking-[0.16em] text-evergreen-600 before:h-px before:w-[26px] before:bg-current before:opacity-50"
           >
@@ -29,6 +33,7 @@ export function Hero3D() {
             {HEADLINE.map((word, i) => (
               <span key={i} className="mr-[0.22em] inline-block align-baseline">
                 <motion.span
+                  id={`hw-${i}`}
                   variants={wordReveal}
                   className={`inline-block ${i === 0 ? "italic pb-[0.24em] pr-[0.12em]" : ""}`}
                   style={i === 0 ? {
@@ -45,16 +50,16 @@ export function Hero3D() {
             ))}
           </h1>
 
-          <motion.p variants={wordReveal} className="mt-6 mx-auto max-w-[46ch] text-[clamp(1.05rem,1.5vw,1.22rem)] text-neutral-500">
+          <motion.p id="hero-sub" variants={wordReveal} className="mt-6 mx-auto max-w-[46ch] text-[clamp(1.05rem,1.5vw,1.22rem)] text-neutral-500">
             We provide strategic finance support that helps businesses gain clarity, maintain profitability, and grow with confidence.
           </motion.p>
 
-          <motion.div variants={wordReveal} className="mt-8 flex flex-wrap justify-center gap-3">
+          <motion.div id="hero-cta" variants={wordReveal} className="mt-8 flex flex-wrap justify-center gap-3">
             <Button href="/contact" variant="primary">Talk To An Expert</Button>
             <Button href="/services" variant="secondary">Explore our services</Button>
           </motion.div>
 
-          <motion.div variants={wordReveal} className="mx-auto mt-10 flex flex-wrap justify-center gap-9 border-t pt-6" style={{borderColor:'rgba(107,46,147,.18)'}}>
+          <motion.div id="hero-stats" variants={wordReveal} className="mx-auto mt-10 flex flex-wrap justify-center gap-9 border-t pt-6" style={{borderColor:'rgba(107,46,147,.18)'}}>
             <Meta value={<AnimatedCounter value={480} suffix="+" />} label="Companies on the books" />
             <Meta value={<AnimatedCounter value={99.8} decimals={1} suffix="%" />} label="Reconciliation accuracy" />
             <Meta value={<AnimatedCounter value={1.2} decimals={1} prefix="$" suffix="B" />} label="Cash flow under management" />
@@ -66,7 +71,7 @@ export function Hero3D() {
       <motion.div
         initial={reduce ? { opacity: 1 } : { opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.8 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
         className="pointer-events-none absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-neutral-400"
       >
         <span className="text-[0.68rem] uppercase tracking-[0.22em]">Scroll</span>
