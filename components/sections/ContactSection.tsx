@@ -21,10 +21,10 @@ export function ContactSection() {
           <button
             key={p.label}
             onClick={() => setSelectedLabel((prev) => (prev === p.label ? "" : p.label))}
-            className={`rounded-full border px-6 py-2.5 text-[0.95rem] font-semibold backdrop-blur-sm transition-all duration-200 ${
+            className={`rounded-full px-6 py-2.5 text-[0.95rem] font-semibold transition-all duration-200 ${
               selectedLabel === p.label
-                ? "border-transparent bg-gradient-to-r from-evergreen-500 to-cyan-500 text-white shadow-[0_6px_20px_rgba(107,46,147,.4)]"
-                : "border-evergreen-200 bg-white/70 text-evergreen-700 hover:border-evergreen-400 hover:bg-white/90"
+                ? "border border-transparent bg-gradient-to-r from-evergreen-500 to-cyan-500 text-white shadow-[0_6px_20px_rgba(107,46,147,.4)]"
+                : "glass-pill text-evergreen-700"
             }`}
           >
             {p.label}
