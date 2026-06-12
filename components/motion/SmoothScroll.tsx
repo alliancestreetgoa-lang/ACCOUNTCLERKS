@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import "locomotive-scroll/dist/locomotive-scroll.css";
-import { locoProgress } from "@/lib/locomotive";
+import { locoProgress, locoScrollY } from "@/lib/locomotive";
 
 const clamp = (n: number) => Math.min(1, Math.max(0, n));
 
@@ -132,6 +132,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
         const limit =
           args?.limit?.y || document.documentElement.scrollHeight - window.innerHeight || 1;
         locoProgress.set(clamp(y / limit));
+        locoScrollY.current = y;
+        window.dispatchEvent(new CustomEvent("loco-scroll", { detail: { y } }));
         kick();
       });
 

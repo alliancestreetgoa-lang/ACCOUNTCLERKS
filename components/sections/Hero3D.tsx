@@ -12,11 +12,11 @@ export function Hero3D() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden pt-[76px]">
+    <section id="hero-section" className="relative flex min-h-[100svh] items-center overflow-hidden pt-[76px]">
       {/* Vivid pink/purple/blue particles on light background */}
       <ParticleField className="pointer-events-none absolute inset-0 z-0 h-full w-full" colorScheme="light" />
 
-      <div {...(reduce ? {} : { "data-scroll": true, "data-scroll-speed": 1.4 })} className="wrap relative z-10">
+      <div id="hero-content" {...(reduce ? {} : { "data-scroll": true, "data-scroll-speed": 1.4 })} className="wrap relative z-10">
         <motion.div variants={stagger(0.08)} initial={reduce ? "show" : "hidden"} animate="show" className="mx-auto max-w-6xl text-center">
           <motion.span
             variants={wordReveal}

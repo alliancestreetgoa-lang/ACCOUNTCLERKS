@@ -6,3 +6,6 @@ import { motionValue } from "framer-motion";
  * `useScroll()` on the window can't see progress — this bridges the two.
  */
 export const locoProgress = motionValue(0);
+
+/** Raw scroll Y in px — kept in sync by SmoothScroll for GSAP ScrollTrigger proxy. */
+export const locoScrollY = { current: 0 };

@@ -67,7 +67,7 @@ export function FinancialDashboard() {
   const d = DATA[tab];
 
   return (
-    <div className="overflow-hidden rounded-[28px] border border-[var(--hair-dark)] bg-[linear-gradient(165deg,#191c15,#0d0f0b)] shadow-e4">
+    <div id="dashboard-card" className="overflow-hidden rounded-[28px] border border-[var(--hair-dark)] bg-[linear-gradient(165deg,#191c15,#0d0f0b)] shadow-e4">
       {/* top bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--hair-dark)] px-5 py-4">
         <div className="flex items-center gap-2">
