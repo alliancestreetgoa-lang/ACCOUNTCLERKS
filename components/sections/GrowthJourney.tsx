@@ -104,7 +104,7 @@ export function GrowthJourney() {
         <div className="mt-24 text-center">
           <h3 className="mx-auto max-w-[18ch] font-serif text-[clamp(1.8rem,3.6vw,2.8rem)] leading-tight">From raw data to real growth — we run the whole journey.</h3>
           <div className="mt-7 flex justify-center gap-3">
-            <Button href="/contact" variant="primary">Talk To An Expert</Button>
+            <Button href="/contact" variant="primary">Start Now</Button>
             <Button href="/financial-management" variant="ghost-dark">See the dashboard</Button>
           </div>
         </div>

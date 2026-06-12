@@ -116,7 +116,7 @@ export function RunwayCalculator() {
         <p className="mt-4 text-[0.92rem] text-[var(--on-ink-mut)]">{status.note}</p>
 
         <div className="mt-auto pt-6">
-          <Button href="/contact" variant="primary" className="w-full">Get a real forecast — Talk To An Expert</Button>
+          <Button href="/contact" variant="primary" className="w-full">Get a real forecast — Start Now</Button>
         </div>
       </div>
     </div>

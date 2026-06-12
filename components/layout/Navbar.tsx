@@ -53,7 +53,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <span className="hidden sm:block">
             <Button href="/#contact" variant="primary" size="sm">
-              Talk To An Expert
+              Start Now
             </Button>
           </span>
           <button
@@ -91,7 +91,7 @@ export function Navbar() {
                 </Link>
               ))}
               <Button href="/#contact" variant="primary" className="mt-4 w-full">
-                Talk To An Expert
+                Start Now
               </Button>
             </div>
           </motion.div>

@@ -87,7 +87,7 @@ export default function RunwayCalculatorPage() {
           />
         </Reveal>
         <Reveal delay={0.1} className="mt-8 flex justify-center gap-3">
-          <Button href="/contact" variant="primary">Talk To An Expert</Button>
+          <Button href="/contact" variant="primary">Start Now</Button>
           <Button href="/financial-management" variant="ghost-dark">See financial management</Button>
         </Reveal>
       </Section>

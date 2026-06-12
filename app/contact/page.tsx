@@ -9,7 +9,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, contactPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Talk To An Expert",
+  title: "Start Now",
   description: "Book a 20-minute walkthrough of your books and get a fixed monthly quote. Multi-step enquiry, instant scheduling.",
 };
 
@@ -26,7 +26,7 @@ export default function ContactPage() {
         data={[
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Talk To An Expert", path: "/contact" },
+            { name: "Start Now", path: "/contact" },
           ]),
           contactPageSchema(),
         ]}

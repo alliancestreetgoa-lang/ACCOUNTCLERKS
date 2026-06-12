@@ -54,7 +54,7 @@ export default function FinancialManagementPage() {
         eyebrow="Financial management"
         title={<>Numbers that tell you <span className="italic text-evergreen-300">what to do next</span>.</>}
         lead="The strategic layer above the close — a live command center for expansion, growth, profitability, cost control, budgeting, cashflow, and forecasting."
-        cta={{ label: "Talk To An Expert", href: "/contact" }}
+        cta={{ label: "Start Now", href: "/contact" }}
       />
 
       {/* Interactive dashboard */}
@@ -96,7 +96,7 @@ export default function FinancialManagementPage() {
               <h3 className="font-serif text-[1.5rem] leading-tight">See it on your numbers.</h3>
               <p className="mt-2 text-[0.95rem] text-canvas/80">A 20-minute walkthrough on your live books.</p>
               <div className="mt-5">
-                <Button href="/contact" variant="secondary" className="bg-canvas text-neutral-900">Talk To An Expert</Button>
+                <Button href="/contact" variant="secondary" className="bg-canvas text-neutral-900">Start Now</Button>
               </div>
             </div>
           </RevealItem>

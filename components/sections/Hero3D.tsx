@@ -49,7 +49,7 @@ export function Hero3D() {
           </motion.p>
 
           <motion.div variants={wordReveal} className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/contact" variant="primary">Talk To An Expert</Button>
+            <Button href="/contact" variant="primary">Start Now</Button>
             <Button href="/services" variant="secondary">Explore our services</Button>
           </motion.div>
 

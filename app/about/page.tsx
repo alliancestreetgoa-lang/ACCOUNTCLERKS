@@ -164,7 +164,7 @@ export default function AboutPage() {
           <SectionHead onDark center eyebrow="Work with us" title="Let's read your numbers together." />
         </Reveal>
         <Reveal delay={0.1} className="mt-8 flex justify-center gap-3">
-          <Button href="/contact" variant="primary">Talk To An Expert</Button>
+          <Button href="/contact" variant="primary">Start Now</Button>
           <Button href="/who-we-work-with" variant="ghost-dark">See who we help</Button>
         </Reveal>
       </Section>
