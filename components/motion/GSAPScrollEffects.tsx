@@ -29,7 +29,8 @@ export function GSAPScrollEffects() {
     window.addEventListener("loco-scroll", sync, { passive: true });
 
     // ── EFFECT 1: Hero cinematic word scatter on exit ─────────────────────────
-    // Each headline word explodes in a different direction as you scroll away.
+    // Hero words are already visible (Framer Motion made them so).
+    // GSAP scrubs them OUT as you scroll away — no immediateRender issue.
     const heroTl = gsap.timeline({
       scrollTrigger: {
         scroller,
@@ -41,13 +42,13 @@ export function GSAPScrollEffects() {
     });
 
     const wordExits = [
-      { id: "#hw-0", x: -160, y: -60, rotation: -10, delay: 0 },
-      { id: "#hw-1", x: 0,    y: -100, rotation: 0,  delay: 0.05 },
-      { id: "#hw-2", x: 160,  y: -60, rotation: 10,  delay: 0.1 },
+      { id: "#hw-0", x: -160, y: -60, rotation: -10, pos: 0 },
+      { id: "#hw-1", x: 0,    y: -100, rotation: 0,  pos: 0.05 },
+      { id: "#hw-2", x: 160,  y: -60, rotation: 10,  pos: 0.1 },
     ];
-    wordExits.forEach(({ id, x, y, rotation, delay }) => {
+    wordExits.forEach(({ id, x, y, rotation, pos }) => {
       const el = document.querySelector(id);
-      if (el) heroTl.to(el, { x, y, rotation, opacity: 0, ease: "none" }, delay);
+      if (el) heroTl.to(el, { x, y, rotation, opacity: 0, ease: "none" }, pos);
     });
 
     heroTl
@@ -56,75 +57,57 @@ export function GSAPScrollEffects() {
       .to("#hero-cta",     { y: -25, opacity: 0, ease: "none" }, 0.14)
       .to("#hero-stats",   { y: -15, opacity: 0, ease: "none" }, 0.2);
 
-    // ── EFFECT 2: Financial dashboard — scrubbed scale + rise ─────────────────
+    // ── EFFECT 2: Financial dashboard card — rise on enter ────────────────────
+    // immediateRender: false keeps the element visible until the trigger fires.
     const dash = document.querySelector("#dashboard-card");
     if (dash) {
-      gsap.fromTo(dash,
-        { y: 90, scale: 0.94, opacity: 0 },
-        {
-          y: 0, scale: 1, opacity: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            scroller,
-            trigger: "#dashboard-card",
-            start: "top 92%",
-            end: "top 38%",
-            scrub: 1.6,
-          },
-        }
-      );
+      gsap.from(dash, {
+        y: 80,
+        scale: 0.94,
+        opacity: 0,
+        immediateRender: false,
+        duration: 1.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          scroller,
+          trigger: "#dashboard-card",
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
     }
 
-    // ── EFFECT 3: Section content — staggered clip-path lift ─────────────────
-    // Targets the .wrap inside each non-hero section for a premium slide-in.
-    document.querySelectorAll<HTMLElement>("section:not(#hero-section) > .wrap").forEach((wrap) => {
-      gsap.fromTo(
-        wrap,
-        { y: 55, opacity: 0, scale: 0.97 },
-        {
-          y: 0, opacity: 1, scale: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            scroller,
-            trigger: wrap.parentElement as Element,
-            start: "top 87%",
-            end: "top 52%",
-            scrub: 1.1,
-          },
-        }
-      );
-    });
-
-    // ── EFFECT 4: Testimonial cards — scale in with scrub ────────────────────
-    document.querySelectorAll<HTMLElement>(".testimonial-card").forEach((card) => {
-      gsap.fromTo(card,
-        { scale: 0.87, opacity: 0 },
-        {
-          scale: 1, opacity: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            scroller,
-            trigger: card,
-            start: "top 88%",
-            end: "top 52%",
-            scrub: 1.3,
-          },
-        }
-      );
-    });
-
-    // ── EFFECT 5: Growth Journey stage numbers — staggered depth float ────────
+    // ── EFFECT 3: Growth Journey stage numbers — depth slide ──────────────────
     document.querySelectorAll<HTMLElement>(".gj-number").forEach((num, i) => {
       gsap.from(num, {
-        x: i % 2 === 0 ? -40 : 40,
+        x: i % 2 === 0 ? -50 : 50,
         opacity: 0,
+        immediateRender: false,
+        duration: 0.9,
         ease: "power2.out",
         scrollTrigger: {
           scroller,
           trigger: num.closest("article") as Element,
-          start: "top 85%",
-          end: "top 55%",
-          scrub: 1.2,
+          start: "top 88%",
+          toggleActions: "play none none none",
+        },
+      });
+    });
+
+    // ── EFFECT 4: Testimonial cards — scale in ────────────────────────────────
+    document.querySelectorAll<HTMLElement>(".testimonial-card").forEach((card, i) => {
+      gsap.from(card, {
+        scale: 0.9,
+        opacity: 0,
+        immediateRender: false,
+        duration: 0.85,
+        delay: i * 0.06,
+        ease: "power2.out",
+        scrollTrigger: {
+          scroller,
+          trigger: card,
+          start: "top 90%",
+          toggleActions: "play none none none",
         },
       });
     });
