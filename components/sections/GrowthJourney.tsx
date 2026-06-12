@@ -14,7 +14,7 @@ const STAGES = [
     sub: "Capture & clean",
     desc: "Every receipt, bank feed, and invoice ingested, categorized, and verified — turning raw transactions into trustworthy data.",
     points: ["Automated bank & card feeds", "Receipt & document capture", "Categorization & validation"],
-    accent: "#B07FD0",
+    accent: "#8B35D6",
   },
   {
     n: "02",
@@ -24,7 +24,7 @@ const STAGES = [
     sub: "Record & reconcile",
     desc: "Clean data becomes a closed set of books — reconciled to the cent, on time, and audit-ready every month.",
     points: ["Daily reconciliation", "Monthly close by the 5th", "Tax-ready statements"],
-    accent: "#7A3DA0",
+    accent: "#6B2E93",
   },
   {
     n: "03",
@@ -34,7 +34,7 @@ const STAGES = [
     sub: "Understand & decide",
     desc: "Closed books become insight — dashboards, forecasts, and the monthly read that turns numbers into decisions.",
     points: ["KPI dashboards & board packs", "Cashflow & scenario forecasting", "Plain-language recommendations"],
-    accent: "#29ABE2",
+    accent: "#0E9FD8",
   },
   {
     n: "04",
@@ -44,7 +44,7 @@ const STAGES = [
     sub: "Expand & grow",
     desc: "Insight becomes action — pricing, expansion, fundraising, and the strategic counsel to grow with confidence.",
     points: ["Growth & expansion modeling", "Fundraising & investor reporting", "Strategic CFO partnership"],
-    accent: "#D81B7E",
+    accent: "#E0187A",
   },
 ];
 
