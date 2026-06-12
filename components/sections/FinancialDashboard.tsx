@@ -82,7 +82,7 @@ export function FinancialDashboard() {
               key={t.key}
               onClick={() => setTab(t.key)}
               className={`relative rounded-full px-4 py-1.5 text-[0.82rem] font-medium transition-colors ${
-                tab === t.key ? "text-canvas" : "text-[var(--on-ink-mut)] hover:text-[var(--on-ink)]"
+                tab === t.key ? "text-canvas" : "glass-pill-ink text-[var(--on-ink-mut)] hover:text-[var(--on-ink)]"
               }`}
             >
               {tab === t.key && (
