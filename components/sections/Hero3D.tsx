@@ -16,7 +16,7 @@ export function Hero3D() {
       className="relative flex min-h-[100svh] items-center overflow-hidden pt-[76px]"
       style={{
         background:
-          "radial-gradient(150% 120% at 85% -5%, rgba(107,46,147,.28) 0%, transparent 55%), radial-gradient(120% 100% at -5% 110%, rgba(41,171,226,.24) 0%, transparent 55%), radial-gradient(80% 70% at 50% 60%, rgba(216,27,126,.07) 0%, transparent 65%), #f7f4fd",
+          "radial-gradient(150% 120% at 85% -5%, rgba(107,46,147,.20) 0%, transparent 50%), radial-gradient(130% 110% at -5% 110%, rgba(41,171,226,.44) 0%, transparent 55%), radial-gradient(90% 80% at 50% 50%, rgba(27,117,187,.13) 0%, transparent 60%), radial-gradient(70% 60% at 50% 60%, rgba(216,27,126,.05) 0%, transparent 65%), #eef4fd",
       }}
     >
       {/* Vivid pink/purple/blue particles on light background */}

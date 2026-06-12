@@ -6,13 +6,13 @@ import { Badge } from "@/components/ui/Badge";
 const INK_BG =
   "radial-gradient(100% 90% at 85% 0%, rgba(107,46,147,.30) 0%, rgba(107,46,147,0) 55%), radial-gradient(85% 80% at 8% 100%, rgba(41,171,226,.10) 0%, rgba(41,171,226,0) 55%), radial-gradient(70% 60% at 100% 90%, rgba(216,27,126,.10) 0%, rgba(216,27,126,0) 55%), linear-gradient(168deg, #1D0F30 0%, #160A24 70%)";
 
-/** Light white-purple/blue sections — white base with rich purple + blue radial washes. */
+/** Light blue-dominant sections — white base with strong cyan + purple radial washes. */
 const PURPLE_BG =
-  "radial-gradient(140% 100% at 0% 0%, rgba(107,46,147,.18) 0%, transparent 55%), radial-gradient(110% 90% at 100% 100%, rgba(41,171,226,.16) 0%, transparent 50%), radial-gradient(80% 70% at 50% 50%, rgba(216,27,126,.05) 0%, transparent 65%), #f7f4fd";
+  "radial-gradient(140% 100% at 0% 0%, rgba(107,46,147,.16) 0%, transparent 55%), radial-gradient(120% 100% at 100% 100%, rgba(41,171,226,.32) 0%, transparent 55%), radial-gradient(70% 60% at 60% 40%, rgba(27,117,187,.10) 0%, transparent 60%), #eef4fd";
 
-/** Alternate purple/blue wash — blue top-right, purple bottom-left for visual variety. */
+/** Alternate — blue top-right dominant, purple bottom-left accent. */
 const PURPLE_BG_ALT =
-  "radial-gradient(140% 100% at 100% 0%, rgba(41,171,226,.18) 0%, transparent 55%), radial-gradient(110% 90% at 0% 100%, rgba(107,46,147,.16) 0%, transparent 50%), #f7f4fd";
+  "radial-gradient(140% 110% at 100% 0%, rgba(41,171,226,.38) 0%, transparent 55%), radial-gradient(100% 90% at 0% 100%, rgba(107,46,147,.18) 0%, transparent 50%), radial-gradient(70% 60% at 50% 50%, rgba(27,117,187,.10) 0%, transparent 65%), #eef4fd";
 
 /** Section wrapper with surface + vertical rhythm. */
 export function Section({

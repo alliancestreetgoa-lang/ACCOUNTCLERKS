@@ -18,7 +18,7 @@ const hoverSweep = "hover:after:translate-x-[130%]";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-evergreen-500/85 text-canvas border border-white/25 shadow-[0_10px_30px_-8px_rgba(107,46,147,.65),inset_0_1px_0_rgba(255,255,255,.45)] hover:bg-evergreen-500 hover:shadow-[0_16px_38px_-8px_rgba(107,46,147,.85),inset_0_1px_0_rgba(255,255,255,.5)] " +
+    "bg-gradient-to-r from-evergreen-500 to-cyan-600 text-canvas border border-white/25 shadow-[0_10px_30px_-8px_rgba(41,171,226,.55),inset_0_1px_0_rgba(255,255,255,.45)] hover:from-evergreen-600 hover:to-cyan-500 hover:shadow-[0_16px_38px_-8px_rgba(41,171,226,.75),inset_0_1px_0_rgba(255,255,255,.5)] " +
     hoverSweep,
   secondary:
     "bg-white/50 text-neutral-900 border border-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,.7),0_6px_18px_-6px_rgba(20,22,15,.22)] hover:bg-white/70 " +
