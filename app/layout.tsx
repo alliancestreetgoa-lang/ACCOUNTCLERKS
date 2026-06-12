@@ -6,7 +6,6 @@ import { Footer } from "@/components/layout/Footer";
 import { LoadingScreen } from "@/components/motion/LoadingScreen";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
-import { AOSInit } from "@/components/motion/AOSInit";
 import { GSAPScrollEffects } from "@/components/motion/GSAPScrollEffects";
 import { MagneticCursor } from "@/components/motion/MagneticCursor";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -65,7 +64,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <MagneticCursor />
-        <AOSInit />
         <GSAPScrollEffects />
         <Navbar />
         <SmoothScroll>

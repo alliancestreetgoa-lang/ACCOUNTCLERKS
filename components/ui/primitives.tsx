@@ -14,7 +14,8 @@ const PURPLE_BG =
 const PURPLE_BG_ALT =
   "radial-gradient(140% 110% at 100% 0%, rgba(41,171,226,.38) 0%, transparent 55%), radial-gradient(100% 90% at 0% 100%, rgba(107,46,147,.18) 0%, transparent 50%), radial-gradient(70% 60% at 50% 50%, rgba(27,117,187,.10) 0%, transparent 65%), #eef4fd";
 
-/** Section wrapper with surface + vertical rhythm. */
+/** Section wrapper with surface + vertical rhythm. No opacity animations here —
+ *  Locomotive Scroll uses CSS transforms so AOS/scroll-based opacity hides content. */
 export function Section({
   children,
   surface = "canvas",
@@ -30,9 +31,6 @@ export function Section({
     return (
       <section
         id={id}
-        data-aos="fade-up"
-        data-aos-duration="750"
-        data-aos-offset="80"
         className={cn("relative overflow-hidden py-[clamp(72px,11vh,140px)] text-[var(--on-ink)]", className)}
         style={{ background: INK_BG }}
       >
@@ -41,13 +39,9 @@ export function Section({
       </section>
     );
   }
-  // All non-ink surfaces are transparent — the fixed body gradient shows through
   return (
     <section
       id={id}
-      data-aos="fade-up"
-      data-aos-duration="750"
-      data-aos-offset="80"
       className={cn("py-[clamp(72px,11vh,140px)] text-neutral-900", className)}
     >
       <div className="wrap">{children}</div>
