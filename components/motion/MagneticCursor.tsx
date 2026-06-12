@@ -15,7 +15,12 @@ export function MagneticCursor() {
     const ring = ringRef.current;
     if (!dot || !ring) return;
 
+    // Hide native cursor via both class (CSS) and inline style (bulletproof)
     document.documentElement.classList.add("custom-cursor");
+    const styleEl = document.createElement("style");
+    styleEl.id = "cursor-hide";
+    styleEl.textContent = "*, *::before, *::after { cursor: none !important; }";
+    document.head.appendChild(styleEl);
 
     let mx = -300, my = -300;
     let rx = -300, ry = -300;
@@ -58,6 +63,7 @@ export function MagneticCursor() {
 
     return () => {
       document.documentElement.classList.remove("custom-cursor");
+      document.getElementById("cursor-hide")?.remove();
       cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseover", onOver);
